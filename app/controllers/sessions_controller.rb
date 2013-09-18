@@ -1,11 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-    if Rails.env.production?
-      redirect_to '/grade_review/auth/cas'
-    else
-      redirect_to '/auth/cas'
-    end
+    redirect_to auth_path('cas')
   end
 
 
