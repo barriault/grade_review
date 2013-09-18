@@ -27,6 +27,10 @@ namespace :deploy do
   task :setup_config, roles: :app do
     sudo "ln -nfs #{current_path}/config/apache.conf /opt/bitnami/apache2/conf/vhosts/#{application}.conf"
     run "mkdir -p #{shared_path}/config"
+
+    run "ln -fs #{deploy_to}/current /home/#{user}/webapps/#{application}"
+    sudo "ln -fs /home/#{user}/webapps/#{application}/public /opt/#{user}/apache2/htdocs/#{application}"
+
     put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
     put File.read("config/application.example.yml"), "#{shared_path}/config/application.yml"
     puts "Now edit the config files in #{shared_path}."
@@ -36,9 +40,6 @@ namespace :deploy do
   task :symlink_config, roles: :app do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml"
-
-    run "ln -fs #{deploy_to}/current /home/#{user}/webapps/#{application}"
-    sudo "ln -fs /home/#{user}/webapps/#{application}/public /opt/#{user}/apache2/htdocs/#{application}"
   end
   after "deploy:finalize_update", "deploy:symlink_config"
 
