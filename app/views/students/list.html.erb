@@ -1,0 +1,14 @@
+<% if can? :manage, Student %>
+<h3>Import Students</h3>
+<%= form_tag import_students_path, multipart: true do %>
+	
+	<%= file_field_tag :file %>
+	<%= submit_tag "Import", :class => 'btn' %>
+<% end %>
+<% end %>
+
+<%= render :super %>
+
+<% if can? :manage, Student %>
+<%= link_to "Remove All Students", remove_all_students_path, :data => { :confirm => "Are you sure?" }, :method => :get, :class => "btn btn-danger" %>
+<% end %>

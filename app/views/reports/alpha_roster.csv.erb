@@ -1,0 +1,4 @@
+"UIN","Last Name","First Name","Initial Status"
+<% @students.each do |student| -%>
+"<%= student.uin %>","<%= student.last_name %>","<%= student.first_name %>","<%= student.initial_status %>"
+<% end -%>

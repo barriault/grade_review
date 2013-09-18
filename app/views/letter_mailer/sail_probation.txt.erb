@@ -1,0 +1,41 @@
+NOTE: Original letter mailed to your permanent address.
+
+
+<%= Date.today.strftime("%A, %B %d, %Y") %>
+
+
+<%= "#{@student.first_name} #{@student.last_name}"%>
+<%= @student.address_1 %>
+<% unless @student.address_2.blank? -%>
+<%= @student.address_2 %>
+<% end -%>
+<%= "#{@student.city}, #{@student.state} #{@student.postal_code}"%>
+
+
+Dear <%= @student.first_name %>, 
+
+
+As a S.A.I.L. student this summer, you were required to maintain at least a 2.0 GPR in your classes, have no failing grades (including CAEX classes), and obey all University student rules in order to be fully admitted to Texas A&M University at Galveston for the Fall <%= Date.today.strftime("%Y") %> semester.  Although you did not fulfill these requirements, you have demonstrated potential to continue your education and are granted permission to enroll at Texas A&M University at Galveston this fall.
+
+You will be placed on academic probation for Fall <%= Date.today.strftime("%Y") %> and must meet the following conditions to be considered in academic good standing:
+     - Complete a minimum of 12 semester credit hours. (Should you need to drop below 12 hours, please   
+       consult with Dr. Donna Lang to provide documentation for your file.)
+     - Obey all University student rules.
+     - Have no unexcused absences.
+     - Comply with all TSI (THEA) regulations and coursework if required.
+     - Adhere to the Aggie Code of Honor.
+	 
+I am proud that you have chosen to pursue your studies at Texas A&M University at Galveston and sincerely hope that you will enjoy your time here.  I hope that you will utilize your full potential to meet the challenges ahead.  Please know that we are committed to your success.  If you should need assistance, please do not hesitate to avail yourself of our services.
+
+
+Sincerely,
+
+
+Dr. Donna C. Lang
+Vice President
+Texas A&M University at Galveston
+
+
+cc: Admissions & Records/S.A.I.L. Probation
+<%= "    Student File - #{@student.uin}" %>
+<%= "    #{@student.major}" %>

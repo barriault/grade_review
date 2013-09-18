@@ -1,0 +1,63 @@
+NOTE: Original letter mailed to your permanent address.
+
+
+<%= Date.today.strftime("%A, %B %d, %Y") %>
+
+
+<%= "#{@student.first_name} #{@student.last_name} [#{@student.uin}]"%>
+<%= @student.address_1 %>
+<% unless @student.address_2.blank? -%>
+<%= @student.address_2 %>
+<% end -%>
+<%= "#{@student.city}, #{@student.state} #{@student.postal_code}"%>
+
+
+Dear <%= @student.first_name %>,
+
+
+I regret to inform you, in accordance with Student Rule 12 that you are suspended from Texas A&M University at Galveston for scholastic deficiency. Your suspension is effective for one calendar year. I encourage you to use this year away from Texas A&M to assess your professional goals, strengthen your academic skills, solve issues which may have affected your scholastic performance or pursue full-time employment so that you can return to TAMUG with renewed capability and enthusiasm.
+
+You may apply for readmission to Texas A&M University at Galveston for enrollment starting after the completion of your one-year suspension. Additional information on the application process for readmission is available from the Office of Admission and Records website. All readmission applications will be reviewed, but readmission is not guaranteed. Factors considered in readmission decisions include grades at Texas A&M, grades on coursework completed since leaving Texas A&M, desired major, and information presented in the application. 
+
+You have the right to appeal this suspension if you believe the action is arbitrary, capricious, or prejudiced. If there are extenuating circumstances that may have affected your academic performance this semester that you feel should be considered in this decision, you are encouraged to contact your academic department. Questions regarding this suspension and the appeals process should be directed to the department head of your particular major (see directory below).
+
+
+Sincerely,
+
+
+Dr. Donna C. Lang
+Vice President
+Texas A&M University at Galveston
+
+
+
+General Academics (GACD, MAST)
+  John Carhart, carhartj@tamug.edu, 409-740-4524
+  Lupe Aaron, aaronl@tamug.edu, 409-740-4498
+  Brian Lemire, lemireb@tamug.edu, 409-740-4536
+
+Marine Biology (MARB, MARF)
+  Dr. John Schwarz, schwarzj@tamug.edu, 409-740-4453
+  Rachel Ball, ballr@tamug.edu, 409-740-4531
+
+Marine Engineering Technology (MARR) and Maritime Systems Engineering (MASE, MASL)
+  Dr. Martin Miller, millerma@tamug.edu, 409-740-4486
+  Michelle Cervantes, cervantm@tamug.edu, 409-740-7197
+  Linda Acosta, acostal@tamug.edu, 409-740-4807
+  
+Marine Sciences (MARS, OCRE, USGA)
+  Dr. Melanie Lesko, leskom@tamug.edu, 409-740-4517
+  Dr. Grace Townsend, townseng@tamug.edu, 409-741-7104
+
+Marine Transportation (MART)
+  Capt. Augusta Roth, rotha@tamug.edu, 409-740-4417
+  Donna Ferrer, ferrerd@tamug.edu, 409-740-4887
+
+Maritime Administration (MARA)
+  Dr. Joan Mileski, mileskij@tamug.edu, 409-740-4978
+  Linda Godsey, godseyl@tamug.edu, 409-740-4478
+
+
+cc: Admissions & Records/Suspension
+<%= "    Student File - #{@student.uin}" %>
+<%= "    #{@student.major}" %>

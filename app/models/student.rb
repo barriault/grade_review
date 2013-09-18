@@ -1,0 +1,78 @@
+class Student < ActiveRecord::Base
+  attr_accessible :address_1, :address_2, :city, :classification, :cum_institution_gpa, :cum_overall_gpa_hrs, :degree_candidate, 
+    :email, :emailed, :first_name, :first_term, :last_name, :major, :phone_number, :postal_code, :state, :term_institution_gpa, 
+    :term_institution_gpa_hrs, :uin, :var_cum_qpts, :var_term_qpts, :initial_status, :final_status
+
+  def to_label
+    "#{first_name} #{last_name} [#{uin}]"
+  end
+  
+  def send_email
+    case final_status
+    when "Probation"
+      LetterMailer.probation(self).deliver
+    when "Suspension"
+      LetterMailer.suspension(self).deliver
+    when "Dept Susp"
+      LetterMailer.departmental_suspension(self).deliver
+    end
+  end
+  
+  def self.import(file)
+    spreadsheet = open_spreadsheet(file)
+    header = spreadsheet.row(1)
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+      student = find_by_id(row["id"]) || new
+      student.attributes = row.to_hash.slice(*accessible_attributes)
+      student.save!
+    end
+  end
+
+  def self.open_spreadsheet(file)
+    case File.extname(file.original_filename)
+    when ".csv" then Roo::Csv.new(file.path, nil, :ignore)
+    when ".xls" then Roo::Excel.new(file.path, nil, :ignore)
+    when ".xlsx" then Roo::Excelx.new(file.path, nil, :ignore)
+    else raise "Unknown file type: #{file.original_filename}"
+    end
+  end
+  
+  def self.merge_data(options = {})
+    CSV.generate(options) do |csv|
+      csv << ["UIN", "Major", "Class", "Last Name", "First Name", "Address 1", "Address 2", "City", "State", "Postal Code"]
+      
+      all.each do |student|
+        csv << [student.uin, student.major, student.classification, student.last_name, student.first_name, student.address_1, 
+          student.address_2, student.city, student.state, student.postal_code]
+      end
+    end
+  end
+  
+  def self.alpha_roster(options = {})
+    CSV.generate(options) do |csv|
+      csv << ["UIN", "Last Name", "First Name", "Initial Status", "Final Status", "Deg Cand?", "Major", "Class", "Cum OA GPA Hrs",
+        "Cum Instn GPA", "Var Cum Qpts", "Var Term Qpts", "Term Instn GPA Hrs", "Term Instn GPA", "First Term?", "Email"]
+      
+      all.each do |student|
+        csv << [student.uin, student.last_name, student.first_name, student.initial_status, student.final_status, student.degree_candidate,
+          student.major, student.classification, student.cum_overall_gpa_hrs, student.cum_institution_gpa, student.var_cum_qpts,
+          student.var_term_qpts, student.term_institution_gpa_hrs, student.term_institution_gpa, student.first_term, student.email]
+      end
+    end
+  end
+  
+  def self.standard_report(options = {})
+    CSV.generate(options) do |csv|
+      csv << ["UIN", "Major", "Class", "Last Name", "First Name", "Cum OA GPA Hrs", "Cum Instn GPA", "Var Cum Qpts", "Var Term Qpts", 
+        "Term Instn GPA Hrs", "Term Instn GPA", "First Term?"]
+      
+      all.each do |student|
+        csv << [student.uin, student.major, student.classification, student.last_name, student.first_name, student.cum_overall_gpa_hrs, 
+          student.cum_institution_gpa, student.var_cum_qpts,  student.var_term_qpts, student.term_institution_gpa_hrs, 
+          student.term_institution_gpa, student.first_term]
+      end
+    end
+  end
+  
+end

@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  status: MyString
+  degree_candidate: MyString
+  uin: MyString
+  major: MyString
+  classification: MyString
+  last_name: MyString
+  first_name: MyString
+  cum_overall_gpa_hrs: MyString
+  cum_institution_gpa: MyString
+  var_cum_qpts: 1
+  var_term_qpts: 1
+  term_institution_gpa_hrs: MyString
+  term_institution_gpa: MyString
+  first_term: MyString
+  address_1: MyString
+  address_2: MyString
+  city: MyString
+  state: MyString
+  postal_code: MyString
+  phone_number: MyString
+  email: MyString
+  emailed: false
+
+two:
+  status: MyString
+  degree_candidate: MyString
+  uin: MyString
+  major: MyString
+  classification: MyString
+  last_name: MyString
+  first_name: MyString
+  cum_overall_gpa_hrs: MyString
+  cum_institution_gpa: MyString
+  var_cum_qpts: 1
+  var_term_qpts: 1
+  term_institution_gpa_hrs: MyString
+  term_institution_gpa: MyString
+  first_term: MyString
+  address_1: MyString
+  address_2: MyString
+  city: MyString
+  state: MyString
+  postal_code: MyString
+  phone_number: MyString
+  email: MyString
+  emailed: false
