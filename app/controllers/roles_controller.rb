@@ -1,5 +1,7 @@
 class RolesController < ApplicationController
   
+  before_filter :authenticate_user!
+  
   active_scaffold :role do |config|
     config.label = "All Roles"
     config.columns = [:name]

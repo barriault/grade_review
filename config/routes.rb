@@ -33,7 +33,13 @@ GradeReview::Application.routes.draw do
     as_routes
   end
   
-  resources :roles do as_routes end
+  resources :roles do 
+    as_routes 
+  end
+  
+  resources :terms do
+    as_routes
+  end
 
   root :to => "home#index"
   # resources :users, :only => [:index, :show, :edit, :update ]
