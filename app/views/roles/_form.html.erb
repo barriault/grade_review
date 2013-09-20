@@ -1,0 +1,18 @@
+<%= simple_form_for @role, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <% if notification = f.error_notification %>
+    <div class="alert alert-error fade in">
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <%= notification %>
+    </div>
+  <% end %>
+
+  <legend>Role</legend>
+  <%= f.input :name, :input_html => { :class => "span6" } %>
+  
+  <div class="form-actions">
+	<%= f.button :submit, :class => 'btn-primary' %>
+	<%= link_to 'Cancel', :back, :class => "btn btn-danger" %>
+  </div>
+	
+<% end %>
