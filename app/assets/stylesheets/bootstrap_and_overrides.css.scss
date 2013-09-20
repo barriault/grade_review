@@ -1,15 +1,8 @@
+$navbarInverseBackground:                #500000;
+$navbarInverseBackgroundHighlight:       #333333;
+
 @import "bootstrap";
 
 body { padding-top: 60px; }
 
-.navbar-inverse
-.navbar-inner {
-    background-color: #3F1F1F;
-    background-image: -moz-linear-gradient(center top , #333333, #500000);
-    background-repeat: repeat-x;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
-    min-height: 40px;
-}
-
 @import "bootstrap-responsive";
-
