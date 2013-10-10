@@ -3,6 +3,14 @@ class Term < ActiveRecord::Base
   before_save :deactivate_all_others
   before_create :deactivate_all_others
   
+  def to_label
+    "#{code}"
+  end
+  
+  def self.current
+    where('active = ?', true).first
+  end
+  
 private
   
   def deactivate_all_others

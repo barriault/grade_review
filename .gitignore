@@ -77,3 +77,4 @@ pickle-email-*.html
 # Ignore rvm stuff
 .ruby-gemset
 .ruby-version
+.rvmrc

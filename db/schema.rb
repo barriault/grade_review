@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20130920143354) do
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "students", :force => true do |t|
+    t.integer  "term_id"
     t.string   "initial_status"
     t.string   "final_status"
     t.string   "degree_candidate"

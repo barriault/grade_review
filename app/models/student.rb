@@ -1,8 +1,12 @@
 class Student < ActiveRecord::Base
   attr_accessible :address_1, :address_2, :city, :classification, :cum_institution_gpa, :cum_overall_gpa_hrs, :degree_candidate, 
     :email, :emailed, :first_name, :first_term, :last_name, :major, :phone_number, :postal_code, :state, :term_institution_gpa, 
-    :term_institution_gpa_hrs, :uin, :var_cum_qpts, :var_term_qpts, :initial_status, :final_status
-
+    :term_institution_gpa_hrs, :uin, :var_cum_qpts, :var_term_qpts, :initial_status, :final_status, :term
+    
+  belongs_to :term
+  
+  default_scope { where(term_id: Term.current.id) }
+  
   def to_label
     "#{first_name} #{last_name} [#{uin}]"
   end

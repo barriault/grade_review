@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user
+  helper_method :current_term
   helper_method :user_signed_in?
   helper_method :correct_user?
 
@@ -8,6 +9,14 @@ class ApplicationController < ActionController::Base
     def current_user
       begin
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
+      rescue Exception => e
+        nil
+      end
+    end
+    
+    def current_term
+      begin
+        @current_term ||= Term.current
       rescue Exception => e
         nil
       end
