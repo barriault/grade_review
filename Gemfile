@@ -38,4 +38,4 @@ group :production do
   gem 'mysql2'
 end
 
-gem 'capistrano'
+gem 'capistrano',   '~> 2.15.5'
