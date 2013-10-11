@@ -27,8 +27,9 @@ class Student < ActiveRecord::Base
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      student = find_by_id(row["id"]) || new
+      student = new
       student.attributes = row.to_hash.slice(*accessible_attributes)
+      student.term = Term.current
       student.save!
     end
   end
