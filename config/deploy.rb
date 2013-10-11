@@ -22,6 +22,18 @@ namespace :db do
   task :seed do
     run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=#{rails_env}"
   end
+  desc "drops the database"
+  task :drop do
+    run "cd #{current_path}; bundle exec rake db:drop RAILS_ENV=#{rails_env}"
+  end
+  desc "resets the database"
+  task :reset do
+    run "cd #{current_path}; bundle exec rake db:reset RAILS_ENV=#{rails_env}"
+  end
+  desc "migrates the database"
+  task :migrate do
+    run "cd #{current_path}; bundle exec rake db:migrate RAILS_ENV=#{rails_env}"
+  end
 end
 
 namespace :deploy do
