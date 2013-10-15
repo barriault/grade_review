@@ -39,3 +39,5 @@ group :production do
 end
 
 gem 'capistrano',   '~> 2.15.5'
+
+gem "mail_view", "~> 1.0.3"

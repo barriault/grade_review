@@ -15,11 +15,11 @@ NOTE: Original letter mailed to your permanent address.
 Dear <%= @student.first_name %>,
 
 
-As a S.A.I.L. student this summer, you were required to maintain at least a 2.0 GPR in your classes, have no failing grades (including CAEX classes), and obey all University student rules in order to be fully admitted to Texas A&M University at Galveston for the Fall <%= Date.today.strftime("%Y") %> semester.  Since you did not fulfill these requirements, you are not eligible to enroll at Texas A&M University at Galveston this fall.
+As a S.A.I.L. student this summer, you were required to maintain at least a 2.0 GPR in your classes, have no failing grades (including CAEX classes), and obey all University student rules in order to be fully admitted to Texas A&M University at Galveston for the <%= @student.term.probation_term %> semester.  Since you did not fulfill these requirements, you are not eligible to enroll at Texas A&M University at Galveston this fall.
 
 Our department will drop your schedule as well as any fee options.  If you received a fall housing assignment to live on campus this fall, you must contact Residence Life at (409) 740-4469 to make arrangements to remove any belongings left in the residence halls from the Summer term and request a refund of your housing deposit.  (We have already notified Residential Services concerning your room assignment.)  If you have belongings in the residence halls, you must contact the housing office immediately.
 
-You will not be eligible to return to Texas A&M University at Galveston until the Fall semester of <%= Date.next_year %>.  If you would like to return, you must do the following:
+Your suspension is effective for one calendar year. You may apply for readmission to Texas A&M University at Galveston for enrollment starting after the completion of your one-year suspension.  If you would like to return, you must do the following:
       -  Meet the readmission guidelines specified by your desired major.
       -  Set a minimum goal of a 3.00 GPR in most recent semester courses taken (not including summer).
       -  Complete no less than 12 graded, transferable hours on most recent semester courses taken

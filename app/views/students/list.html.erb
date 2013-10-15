@@ -1,5 +1,5 @@
 <% if can? :manage, Student %>
-<h3>Import Students</h3>
+<h3>Import Students into <%= current_term.name %> Term</h3>
 <%= form_tag import_students_path, multipart: true do %>
 	
 	<%= file_field_tag :file %>

@@ -23,4 +23,19 @@ class LetterMailer < ActionMailer::Base
     @student = student
     mail to: student.email, subject: "Departmental Suspension"
   end
+  
+  def sail_good_standing(student)
+    @student = student
+    mail to: student.email, subject: "SAIL Congradulations!"
+  end
+  
+  def sail_probation(student)
+    @student = student
+    mail to: student.email, subject: "SAIL Probation"
+  end
+  
+  def sail_suspension(student)
+    @student = student
+    mail to: student.email, subject: "SAIL Suspension"
+  end
 end

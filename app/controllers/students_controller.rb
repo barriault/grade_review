@@ -7,15 +7,15 @@ class StudentsController < ApplicationController
       :term_institution_gpa, :first_term, :phone_number, :emailed]
     conf.list.columns = [:term, :initial_status, :final_status, :degree_candidate, :major, :classification, :uin, :last_name, :first_name,
       :cum_overall_gpa_hrs, :cum_institution_gpa, :var_cum_qpts, :var_term_qpts, :term_institution_gpa_hrs, :term_institution_gpa, :first_term, :emailed]
-    conf.update.columns = [:address_1, :address_2, :city, :state, :postal_code, :emailed]
+    conf.update.columns = [:final_status, :address_1, :address_2, :city, :state, :postal_code, :email]
     conf.list.sorting = [{ :initial_status => :asc}, {:major => :asc}, {:classification => :asc}, {:last_name => :asc}, {:first_name => :asc }]
     conf.list.per_page = 25
     conf.actions.swap :search, :field_search
     conf.field_search.columns = :initial_status, :final_status, :major, :classification, :uin, :last_name, :first_name, :emailed
     conf.action_links.add :send_emails, :type => :collection, :method => :put, :params => {:emailed => false}, :position => false
     conf.action_links.add :approve, :type => :member, :crud_type => :update, :method => :put, :position => false
-    conf.action_links.add :change, :type => :member, :crud_type => :update, :method => :put, :position => false
-    conf.action_links.add :remove, :type => :member, :crud_type => :update, :method => :put, :position => false
+    # conf.action_links.add :change, :type => :member, :crud_type => :update, :method => :put, :position => false
+    # conf.action_links.add :remove, :type => :member, :crud_type => :update, :method => :put, :position => false
     
     conf.columns[:initial_status].label = "Initial Status"
     conf.columns[:final_status].label = "Final Status"

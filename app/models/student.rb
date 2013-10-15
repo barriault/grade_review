@@ -8,7 +8,7 @@ class Student < ActiveRecord::Base
   default_scope { where(term_id: Term.current.id) }
   
   def to_label
-    "#{first_name} #{last_name} [#{uin}]"
+    "#{first_name} #{last_name} [#{uin}] - #{initial_status}"
   end
   
   def send_email
@@ -19,6 +19,12 @@ class Student < ActiveRecord::Base
       LetterMailer.suspension(self).deliver
     when "Dept Susp"
       LetterMailer.departmental_suspension(self).deliver
+    when "SAIL Good Standing"
+      LetterMailer.sail_good_standing(self).deliver
+    when "SAIL Probation"
+      LetterMailer.sail_probation(self).deliver
+    when "SAIL Suspension"
+      LetterMailer.sail_suspension(self).deliver
     end
   end
   

@@ -78,3 +78,6 @@ pickle-email-*.html
 .ruby-gemset
 .ruby-version
 .rvmrc
+
+# Ignore pow stuff
+.powenv

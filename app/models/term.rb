@@ -1,5 +1,5 @@
 class Term < ActiveRecord::Base
-  attr_accessible :active, :code, :name
+  attr_accessible :active, :code, :name, :probation_term
   before_save :deactivate_all_others
   before_create :deactivate_all_others
   
@@ -9,6 +9,18 @@ class Term < ActiveRecord::Base
   
   def self.current
     where('active = ?', true).first
+  end
+  
+  def is_spring?
+    !code.match('12$').nil?
+  end
+  
+  def is_summer?
+    !code.match('22$').nil?
+  end
+  
+  def is_fall?
+    !code.match('32$').nil?
   end
   
 private

@@ -39,6 +39,36 @@ class ReportsController < ApplicationController
     end
   end
   
+  def sail_good_standing_merge_data
+    @students = Student.accessible_by(current_ability)
+      .where(:final_status => "SAIL Good Standing")
+      .order("major, classification, last_name, first_name")
+      
+    respond_to do |format|
+      format.csv { send_data @students.merge_data }
+    end
+  end
+  
+  def sail_probation_merge_data
+    @students = Student.accessible_by(current_ability)
+      .where(:final_status => "SAIL Probation")
+      .order("major, classification, last_name, first_name")
+      
+    respond_to do |format|
+      format.csv { send_data @students.merge_data }
+    end
+  end
+  
+  def sail_suspension_merge_data
+    @students = Student.accessible_by(current_ability)
+      .where(:final_status => "SAIL Suspension")
+      .order("major, classification, last_name, first_name")
+      
+    respond_to do |format|
+      format.csv { send_data @students.merge_data }
+    end
+  end
+  
   def tamu_suspension_to_probation
     @students = Student.accessible_by(current_ability)
       .where("initial_status = 'Suspension' AND final_status = 'Probation'")

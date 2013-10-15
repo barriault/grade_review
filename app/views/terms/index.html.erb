@@ -4,8 +4,8 @@
     <tr>
       <th>Code</th>
       <th>Name</th>
+      <th>Probation Term</th>
       <th>Active?</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -13,8 +13,8 @@
     <tr>
       <td><%= link_to term.code, edit_term_path(term) %></td>
       <td><%= term.name %></td>
+      <td><%= term.probation_term %></td>
       <td><%= term.active %></td>
-      <td><%= link_to("Delete term", term_path(term), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini') unless term.active? %></td>
     </tr>
   <% end %>
   </tbody>

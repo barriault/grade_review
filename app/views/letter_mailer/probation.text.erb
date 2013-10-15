@@ -15,11 +15,11 @@ NOTE: Original letter mailed to your permanent address.
 Dear <%= @student.first_name %>, 
 
 
-Upon receipt of your final grade report, your academic record was reviewed at the departmental and institutional level. Since your grade point ratio is below the minimum level required to maintain satisfactory scholastic standing, you will be placed on scholastic probation for the Fall 2013 semester and until your grade point ratio becomes satisfactory.
+Upon receipt of your final grade report, your academic record was reviewed at the departmental and institutional level. Since your grade point ratio is below the minimum level required to maintain satisfactory scholastic standing, you will be placed on scholastic probation for the <%= @student.term.probation_term %> semester and until your grade point ratio becomes satisfactory.
 
 As you are probably aware, scholastic probation constitutes conditional permission to continue in the University after having become scholastically deficient. Please look carefully at your grades on your Howdy portal. I recommend using the unofficial transcript to review your entire history. If your cumulative grade point ratio is above 2.0 but your term GPR is below 2.0, this is less serious, however; you should review your progress for patterns. If your cumulative GPR is below 2.0, this is a more serious condition. It is also more serious the further you are into your degree program (senior versus freshman). The primary function of this review is to help guide you to keep moving toward your degree and your goals. Following are the terms you must meet to continue your degree at TAMUG:
 
-  * At the end of the fall 2013 semester, your cumulative grade point ratio must be equal to or greater than 2.0. (In some cases, you may be allowed to continue past Fall 2013, if you have made significant progress.)
+  * At the end of the <%= @student.term.probation_term %> semester, your cumulative grade point ratio must be equal to or greater than 2.0. (In some cases, you may be allowed to continue past <%= @student.term.probation_term %>, if you have made significant progress.)
   * Regular attendance in all scheduled classes.
   * Ensure that you have pre-requisite courses for all enrolled courses.
   * Repeat any required courses prior to moving forward in that subject.

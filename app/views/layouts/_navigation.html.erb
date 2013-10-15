@@ -2,18 +2,38 @@
 <ul class="nav">
 <% if user_signed_in? %>
 	<li><%= link_to 'Students', students_path %></li>
+	<li><%= link_to 'Address Audit', root_path %></li>
 	<li class="dropdown">
 		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports<b class="caret"></b></a>
 		<ul class="dropdown-menu">
 			<li><%= link_to "Alpha Roster", alpha_roster_reports_path(format: 'csv') %></li>
+			<% unless current_term.is_summer? %>
 			<li><%= link_to 'TAMU Suspension to Probation', tamu_suspension_to_probation_reports_path(format: 'csv') %></li>
 			<li><%= link_to 'TAMU Suspensions', tamu_suspensions_reports_path(format: 'csv') %></li>
 			<li><%= link_to 'Departmental Suspensions', departmental_suspensions_reports_path(format: 'csv') %></li>
+			<% end %>
 			<li class="divider"></li>
 			<li class="nav-header">Merge Data</li>
+			<% if current_term.is_summer? %>
+			<li><%= link_to 'SAIL Good Standing', sail_good_standing_merge_data_reports_path(format: 'csv') %></li>
+			<li><%= link_to 'SAIL Probation', sail_probation_merge_data_reports_path(format: 'csv') %></li>
+			<li><%= link_to 'SAIL Suspension', sail_suspension_merge_data_reports_path(format: 'csv') %></li>
+			<% else %>
 			<li><%= link_to 'Probation', probation_merge_data_reports_path(format: 'csv') %></li>
 			<li><%= link_to 'Departmental Suspension', departmental_suspension_merge_data_reports_path(format: 'csv') %></li>
 			<li><%= link_to 'Suspension', suspension_merge_data_reports_path(format: 'csv') %></li>
+			<% end %>
+			<li class="divider"></li>
+			<li class="nav-header">Letter Preview</li>
+			<% if current_term.is_summer? %>
+			<li><%= link_to 'SAIL Good Standing', sail_good_standing_letter_path %></li>
+			<li><%= link_to 'SAIL Probation', sail_probation_letter_path %></li>
+			<li><%= link_to 'SAIL Suspension', sail_suspension_letter_path %></li>
+			<% else %>
+			<li><%= link_to 'Probation', probation_letter_path %></li>
+			<li><%= link_to 'Departmental Suspension', departmental_suspension_letter_path %></li>
+			<li><%= link_to 'Suspension', suspension_letter_path %></li>
+			<% end %>
 		</ul>
 	</li>
 	<% if current_user.has_role? :admin %>
