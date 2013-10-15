@@ -13,7 +13,8 @@ YAML.load(ENV['ROLES']).each do |role|
   puts 'role: ' << role
 end
 
-term = Term.create(code: "201312", name: "Spring 2013", active: true)
+term = Term.create(code: "201312", name: "Spring 2013", probation_term: "Fall 2013", active: true)
+Term.create(code: "201322", name: "Summer 2013", probation_term: "Fall 2013", active: true)
 
 user = User.create(name: "Jeff Barriault", uid: "barriauj", email: "barriauj@tamug.edu")
 user.add_role :admin
