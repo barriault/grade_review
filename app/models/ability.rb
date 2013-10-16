@@ -27,7 +27,9 @@ class Ability
     
     user ||= User.new # guest user (not logged in)
     
-    alias_action :read, :update, :show_search, :approve, :change, :remove, :to => :manage_student
+    alias_action :read, :update, :show_search, :approve, :to => :manage_student
+    alias_action :read, :update, :show_search, :grant, :deny, :to => :manage_appeal
+    alias_action :read, :update, :show_search, :to => :manage_address
     
     if user.has_role? :admin
       can :manage, :all
@@ -35,6 +37,13 @@ class Ability
     
     if user.has_role? :super_user
       can :manage_student, Student
+      can :manage_appeal, Appeal
+      can :manage_address, Address
+    end
+    
+    if user.has_role? :assistant
+      can [:read, :show_search], Student
+      can :manage_address, Address
     end
     
     if user.has_role? :marb
