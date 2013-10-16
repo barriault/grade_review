@@ -35,6 +35,10 @@ GradeReview::Application.routes.draw do
     as_routes 
   end
   
+  resources :addresses do 
+    as_routes 
+  end
+  
   resources :users do
     as_routes
   end

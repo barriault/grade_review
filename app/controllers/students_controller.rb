@@ -7,7 +7,7 @@ class StudentsController < ApplicationController
       :term_institution_gpa, :first_term, :phone_number, :emailed]
     conf.list.columns = [:term, :initial_status, :final_status, :degree_candidate, :major, :classification, :uin, :last_name, :first_name,
       :cum_overall_gpa_hrs, :cum_institution_gpa, :var_cum_qpts, :var_term_qpts, :term_institution_gpa_hrs, :term_institution_gpa, :first_term, :emailed]
-    conf.update.columns = [:final_status, :address_1, :address_2, :city, :state, :postal_code, :email]
+    conf.update.columns = [:final_status]
     conf.list.sorting = [{ :initial_status => :asc}, {:major => :asc}, {:classification => :asc}, {:last_name => :asc}, {:first_name => :asc }]
     conf.list.per_page = 25
     conf.actions.swap :search, :field_search
