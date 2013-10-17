@@ -26,3 +26,11 @@
 }
 
 .brand-logo {height: 16px;}
+
+.active-scaffold-header div.actions a.send_emails {
+	background-image: url("/assets/email_go.png");
+  background-position: 5px 50%;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 5px 5px 5px 25px;
+}
