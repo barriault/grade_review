@@ -11,6 +11,7 @@ set :use_sudo, false
 set :scm, "git"
 set :repository, "git@github.com:barriauj/#{application}.git"
 set :branch, "master"
+set :asset_env, "RAILS_GROUPS=assets RAILS_RELATIVE_URL_ROOT='/grade_review'"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
