@@ -1,0 +1,14 @@
+<% if Term.current.is_summer?
+  select_options = ["SAIL Good Standing", "SAIL Probation", "SAIL Suspension"]
+else
+  select_options = ["Probation", "Departmental Suspension", "Suspension", "Remove"]
+end %>
+
+<dl>
+  <dt>
+    <label for="<%= "record_#{column.name}_#{record.id}" %>">Final Status</label>
+  </dt>
+  <dd>
+    <%= select(:record, :final_status, select_options, { :include_blank => as_(:_select_) }, :id => "record_final_status_#{record.id}") %>
+  </dd>
+</dl>

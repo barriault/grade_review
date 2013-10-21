@@ -3,6 +3,8 @@ class Term < ActiveRecord::Base
   before_save :deactivate_all_others
   before_create :deactivate_all_others
   
+  has_many :students, dependent: :destroy
+  
   def to_label
     "#{code}"
   end

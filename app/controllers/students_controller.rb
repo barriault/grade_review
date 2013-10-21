@@ -14,6 +14,7 @@ class StudentsController < ApplicationController
     conf.field_search.columns = :initial_status, :final_status, :appeal_status, :major, :classification, :uin, :last_name, :first_name, :emailed
     conf.action_links.add :send_emails, :type => :collection, :method => :put, :params => {:emailed => false}, :position => false
     conf.action_links.add :approve, :type => :member, :crud_type => :update, :method => :put, :position => false
+    conf.actions.exclude :show
     # conf.action_links.add :change, :type => :member, :crud_type => :update, :method => :put, :position => false
     # conf.action_links.add :remove, :type => :member, :crud_type => :update, :method => :put, :position => false
     

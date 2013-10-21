@@ -1,5 +1,13 @@
-<h3>Welcome to the TAMUG grade review portal.</h3>
 <% unless user_signed_in? %>
-<p>Log in with your NetID to get started.</p>
-<%= link_to("Login", signin_path, :class => 'btn btn-primary') %>
+	<div class="alert alert-info">
+	  <button type="button" class="close" data-dismiss="alert">&#215;</button>
+	  <%= link_to("Login", signin_path) %> with your NetID to get started.
+	</div>
+<% else %>
+	<div class="alert alert-info">
+	  <button type="button" class="close" data-dismiss="alert">&#215;</button>
+	  Navigate the application using the menu bar above. Be sure to <%= link_to 'logout', signout_path %> and close your browser when complete.
+	</div>
 <% end %>
+
+<h3>Welcome to the TAMUG grade review portal.</h3>
