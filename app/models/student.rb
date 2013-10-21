@@ -75,13 +75,13 @@ class Student < ActiveRecord::Base
   
   def self.standard_report(options = {})
     CSV.generate(options) do |csv|
-      csv << ["UIN", "Major", "Class", "Last Name", "First Name", "Cum OA GPA Hrs", "Cum Instn GPA", "Var Cum Qpts", "Var Term Qpts", 
+      csv << ["Final Status", "Appeal Status", "UIN", "Major", "Class", "Last Name", "First Name", "Cum OA GPA Hrs", "Cum Instn GPA", "Var Cum Qpts", "Var Term Qpts", 
         "Term Instn GPA Hrs", "Term Instn GPA", "First Term?"]
       
       all.each do |student|
-        csv << [student.uin, student.major, student.classification, student.last_name, student.first_name, student.cum_overall_gpa_hrs, 
-          student.cum_institution_gpa, student.var_cum_qpts,  student.var_term_qpts, student.term_institution_gpa_hrs, 
-          student.term_institution_gpa, student.first_term]
+        csv << [student.final_status, student.appeal_status, student.uin, student.major, student.classification, student.last_name, 
+          student.first_name, student.cum_overall_gpa_hrs, student.cum_institution_gpa, student.var_cum_qpts, student.var_term_qpts, 
+          student.term_institution_gpa_hrs, student.term_institution_gpa, student.first_term]
       end
     end
   end

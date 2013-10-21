@@ -41,4 +41,11 @@ class TermsController < ApplicationController
     end
   end
   
+  def make_active
+    Term.deactivate_all
+    @term.active = true
+    @term.save
+    redirect_to terms_path, :notice => "Term activated."
+  end
+  
 end

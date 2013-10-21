@@ -14,7 +14,11 @@
       <td><%= link_to term.code, edit_term_path(term) %></td>
       <td><%= term.name %></td>
       <td><%= term.probation_term %></td>
-      <td><%= term.active %></td>
+			<% if term.active -%>
+      <td>Yes</td>
+			<% else -%>
+			<td><%= link_to("Make Active", make_active_term_path(term), :method => :put, :class => 'btn btn-mini btn-primary') %></td>
+			<% end -%>
     </tr>
   <% end %>
   </tbody>

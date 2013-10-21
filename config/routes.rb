@@ -15,6 +15,7 @@ GradeReview::Application.routes.draw do
       get :tamu_suspension_to_probation
       get :tamu_suspensions
       get :departmental_suspensions
+      get :appeals
     end
   end
   
@@ -28,8 +29,6 @@ GradeReview::Application.routes.draw do
     
     member do
       put 'approve'
-      put 'change'
-      put 'remove'
     end
     
     as_routes 
@@ -57,6 +56,10 @@ GradeReview::Application.routes.draw do
   end
   
   resources :terms do
+    member do
+      put 'make_active'
+    end
+
     as_routes
   end
 

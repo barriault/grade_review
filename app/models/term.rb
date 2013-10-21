@@ -1,7 +1,5 @@
 class Term < ActiveRecord::Base
-  attr_accessible :active, :code, :name, :probation_term
-  before_save :deactivate_all_others
-  before_create :deactivate_all_others
+  attr_accessible :code, :name, :probation_term
   
   has_many :students, dependent: :destroy
   
@@ -25,10 +23,8 @@ class Term < ActiveRecord::Base
     !code.match('32$').nil?
   end
   
-private
-  
-  def deactivate_all_others
-    self.class.where('active = ?', true).update_all("active = 'false'") if self.active?
+  def self.deactivate_all
+    Term.where('active = ?', true).update_all("active = 'false'")
   end
   
 end

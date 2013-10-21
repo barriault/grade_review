@@ -99,4 +99,14 @@ class ReportsController < ApplicationController
     end
   end
   
+  def appeals
+    @students = Student.accessible_by(current_ability)
+      .where("appeal_status = 'Denied' OR appeal_status = 'Granted'")
+      .order("major, classification, last_name, first_name")
+      
+    respond_to do |format|
+      format.csv { send_data @students.standard_report }
+    end
+  end
+  
 end
