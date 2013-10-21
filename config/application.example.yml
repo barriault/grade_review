@@ -9,4 +9,4 @@
 #
 SMTP_USER: username
 SMTP_PASSWORD: changeme
-ROLES: [admin, super_user, marb, marr, mars, gacd, mase, mara, mart]
+ROLES: [admin, super_user, marb, marr, mars, gacd, mase, mara, mart, assistant]

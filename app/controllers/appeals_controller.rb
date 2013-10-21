@@ -25,14 +25,14 @@ class AppealsController < ApplicationController
   def grant
     process_action_link_action do |record|
       self.successful = true
-      record.update_attribute(:appeal_status, "Granted")
+      record.grant_appeal
     end
   end
   
   def deny
     process_action_link_action do |record|
       self.successful = true
-      record.update_attribute(:appeal_status, "Denied")
+      record.deny_appeal
     end    
   end
   

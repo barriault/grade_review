@@ -1,3 +1,10 @@
+<div class="alert">
+  <button type="button" class="close" data-dismiss="alert">&#215;</button>
+  <strong>Warning!</strong> Roles are used for authorization via the <%= link_to "CanCan", "https://github.com/ryanb/cancan" %> gem. Additions, 
+	deletions, or changes in roles must also be reflected in the Ability class found in app/models/ability.rb. Do not make changes to the roles 
+	without updating the code and redeploying the application. 
+</div>
+
 <h3>Roles</h3>
 <table class="table table-condensed table-striped table-bordered">
   <thead>
