@@ -1,7 +1,11 @@
 <% if Term.current.is_summer?
   select_options = ["SAIL Good Standing", "SAIL Probation", "SAIL Suspension"]
 else
-  select_options = ["Probation", "Departmental Suspension", "Suspension", "Remove"]
+	if record.initial_status.eql?("Probation")
+	  select_options = ["Probation", "Departmental Suspension", "Remove"]
+	else
+	  select_options = ["Probation", "Suspension"]
+	end
 end %>
 
 <dl>
