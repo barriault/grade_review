@@ -55,4 +55,32 @@ class Term < ActiveRecord::Base
     students.where(:appeal_status => "Denied").count
   end
   
+  def majors
+    (students.collect { |student| student.major }).uniq.sort
+  end
+  
+  def suspensions_by_major(major)
+    students.where(major: major).where(Student.arel_table[:final_status].matches("%Suspension%")).count
+  end
+  
+  def probations_by_major(major)
+    students.where(major: major).where(Student.arel_table[:final_status].matches("%Probation%")).count
+  end
+  
+  def total_deficiency_by_major(major)
+    students.where(major: major).where(Student.arel_table[:final_status].matches("%Probation%").or(Student.arel_table[:final_status].matches("%Suspension%"))).count
+  end
+  
+  def appeals_by_major(major)
+    students.where(major: major).where(Student.arel_table[:appeal_status].not_eq(nil)).count
+  end
+  
+  def appeals_granted_by_major(major)
+    students.where(major: major).where(:appeal_status => "Granted").count
+  end
+  
+  def appeals_denied_by_major(major)
+    students.where(major: major).where(:appeal_status => "Denied").count
+  end
+  
 end
