@@ -70,26 +70,22 @@ class Student < ActiveRecord::Base
   
   def self.alpha_roster(options = {})
     CSV.generate(options) do |csv|
-      csv << ["UIN", "Last Name", "First Name", "Initial Status", "Final Status", "Deg Cand?", "Major", "Class", "Cum OA GPA Hrs",
-        "Cum Instn GPA", "Var Cum Qpts", "Var Term Qpts", "Term Instn GPA Hrs", "Term Instn GPA", "First Term?", "Email"]
+      csv << ["UIN", "Last Name", "First Name", "Initial Status", "Final Status", "Appeal Status", "Major", "Class"]
       
       all.each do |student|
-        csv << [student.uin, student.last_name, student.first_name, student.initial_status, student.final_status, student.degree_candidate,
-          student.major, student.classification, student.cum_overall_gpa_hrs, student.cum_institution_gpa, student.var_cum_qpts,
-          student.var_term_qpts, student.term_institution_gpa_hrs, student.term_institution_gpa, student.first_term, student.email]
+        csv << [student.uin, student.last_name, student.first_name, student.initial_status, student.final_status, student.appeal_status,
+          student.major, student.classification]
       end
     end
   end
   
   def self.standard_report(options = {})
     CSV.generate(options) do |csv|
-      csv << ["Final Status", "Appeal Status", "UIN", "Major", "Class", "Last Name", "First Name", "Cum OA GPA Hrs", "Cum Instn GPA", "Var Cum Qpts", "Var Term Qpts", 
-        "Term Instn GPA Hrs", "Term Instn GPA", "First Term?"]
+      csv << ["Final Status", "Appeal Status", "UIN", "Major", "Class", "Last Name", "First Name"]
       
       all.each do |student|
         csv << [student.final_status, student.appeal_status, student.uin, student.major, student.classification, student.last_name, 
-          student.first_name, student.cum_overall_gpa_hrs, student.cum_institution_gpa, student.var_cum_qpts, student.var_term_qpts, 
-          student.term_institution_gpa_hrs, student.term_institution_gpa, student.first_term]
+          student.first_name]
       end
     end
   end

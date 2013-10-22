@@ -1,0 +1,36 @@
+<div class="well">
+	<div class="page-header">
+		<h3>
+			<%= Term.current.name %> Alpha Roster
+			<span class="pull-right"><%= link_to "Download CSV", alpha_roster_reports_path(format: 'csv'), :class => 'btn btn-mini btn-primary' %></span>
+		</h3>
+	</div>
+	<table class="table table-condensed">
+	  <thead>
+	    <tr>
+	      <th>UIN</th>
+	      <th>Last Name</th>
+				<th>First Name</th>
+	      <th>Initial Status</th>
+				<th>Final Status</th>
+				<th>Appeal Status</th>
+				<th>Major</th>
+				<th>Class</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  <% @students.each do |student| %>
+	    <tr>
+	      <td><%= student.uin %></td>
+	      <td><%= student.last_name %></td>
+				<td><%= student.first_name %></td>
+				<td><%= student.initial_status %></td>
+				<td><%= student.final_status %></td>
+				<td><%= student.appeal_status %></td>
+				<td><%= student.major %></td>
+				<td><%= student.classification %></td>
+	    </tr>
+	  <% end %>
+	  </tbody>
+	</table>
+</div>

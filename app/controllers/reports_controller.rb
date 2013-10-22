@@ -6,6 +6,7 @@ class ReportsController < ApplicationController
       .order(:last_name, :first_name)
     respond_to do |format|
       format.csv { send_data @students.alpha_roster }
+      format.html
     end
   end
   
@@ -76,6 +77,7 @@ class ReportsController < ApplicationController
       
     respond_to do |format|
       format.csv { send_data @students.standard_report }
+      format.html
     end
   end
   
@@ -86,6 +88,7 @@ class ReportsController < ApplicationController
       
     respond_to do |format|
       format.csv { send_data @students.standard_report }
+      format.html
     end
   end
   
@@ -96,6 +99,7 @@ class ReportsController < ApplicationController
       
     respond_to do |format|
       format.csv { send_data @students.standard_report }
+      format.html
     end
   end
   
@@ -106,6 +110,7 @@ class ReportsController < ApplicationController
       
     respond_to do |format|
       format.csv { send_data @students.standard_report }
+      format.html
     end
   end
   
