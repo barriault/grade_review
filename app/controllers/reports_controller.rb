@@ -109,4 +109,12 @@ class ReportsController < ApplicationController
     end
   end
   
+  def scholastic_deficiency_by_term
+    @terms = Term.order("code DESC")
+  end
+  
+  def scholastic_deficiency_by_major
+    @term = Term.find(params[:id])
+  end
+  
 end

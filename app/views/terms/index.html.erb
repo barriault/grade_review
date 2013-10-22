@@ -5,6 +5,7 @@
       <th>Code</th>
       <th>Name</th>
       <th>Probation Term</th>
+			<th>Total Undergraduate Enrollment</th>
       <th>Active?</th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
       <td><%= link_to term.code, edit_term_path(term) %></td>
       <td><%= term.name %></td>
       <td><%= term.probation_term %></td>
+			<td><%= term.total_undergraduate_enrollment %></td>
 			<% if term.active -%>
       <td>Yes</td>
 			<% else -%>

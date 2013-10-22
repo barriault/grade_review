@@ -11,6 +11,7 @@
 	<li class="dropdown">
 		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports<b class="caret"></b></a>
 		<ul class="dropdown-menu">
+			<li class="nav-header">Audit Reports (CSV)</li>
 			<li><%= link_to "Alpha Roster", alpha_roster_reports_path(format: 'csv') %></li>
 			<% unless current_term.is_summer? %>
 			<li><%= link_to 'TAMU Suspension to Probation', tamu_suspension_to_probation_reports_path(format: 'csv') %></li>
@@ -19,7 +20,10 @@
 			<% end %>
 			<li><%= link_to 'Appeals', appeals_reports_path(format: 'csv') %></li>
 			<li class="divider"></li>
-			<li class="nav-header">Merge Data</li>
+			<li class="nav-header">Summary Data</li>
+			<li><%= link_to 'Scholastic Deficiency', scholastic_deficiency_by_term_reports_path %></li>
+			<li class="divider"></li>
+			<li class="nav-header">Merge Data (CSV)</li>
 			<% if current_term.is_summer? %>
 			<li><%= link_to 'SAIL Good Standing', sail_good_standing_merge_data_reports_path(format: 'csv') %></li>
 			<li><%= link_to 'SAIL Probation', sail_probation_merge_data_reports_path(format: 'csv') %></li>
@@ -30,7 +34,7 @@
 			<li><%= link_to 'Suspension', suspension_merge_data_reports_path(format: 'csv') %></li>
 			<% end %>
 			<li class="divider"></li>
-			<li class="nav-header">Letter Preview</li>
+			<li class="nav-header">Letter Preview (TXT)</li>
 			<% if current_term.is_summer? %>
 			<li><%= link_to 'SAIL Good Standing', sail_good_standing_letter_path %></li>
 			<li><%= link_to 'SAIL Probation', sail_probation_letter_path %></li>

@@ -1,6 +1,10 @@
 GradeReview::Application.routes.draw do
   
   resources :reports do
+    member do
+      get :scholastic_deficiency_by_major  
+    end
+    
     collection do
       get :alpha_roster
       
@@ -16,6 +20,8 @@ GradeReview::Application.routes.draw do
       get :tamu_suspensions
       get :departmental_suspensions
       get :appeals
+      
+      get :scholastic_deficiency_by_term
     end
   end
   

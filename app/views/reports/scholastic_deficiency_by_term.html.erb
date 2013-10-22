@@ -1,0 +1,36 @@
+<div class="alert alert-info">
+  <button type="button" class="close" data-dismiss="alert">&#215;</button>
+  Click the <span class="label label-info">Term</span> link to view the Scholastic Deficiency by Major for the selected term.
+</div>
+
+<h3>TAMUG Scholastic Deficiency by Term</h3>
+<table class="table table-condensed table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Term</th>
+      <th>Total Undergraduate Enrollment</th>
+      <th>Suspensions</th>
+			<th>Probations</th>
+      <th>Total Deficiency</th>
+			<th>% of Total</th>
+			<th>Appeals</th>
+			<th>Appeal Granted</th>
+			<th>Appeal Denied</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @terms.each do |term| %>
+    <tr>
+      <td><%= link_to term.name, scholastic_deficiency_by_major_report_path(term) %></td>
+			<td><%= term.total_undergraduate_enrollment %></td>
+      <td><%= term.suspensions %></td>
+      <td><%= term.probations %></td>
+			<td><%= term.total_deficiency %></td>
+			<td><%= number_to_percentage(term.percent_of_total, precision: 2) %></td>
+			<td><%= term.appeals %></td>
+			<td><%= term.appeals_granted %></td>
+			<td><%= term.appeals_denied %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
