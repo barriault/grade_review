@@ -20,6 +20,14 @@ class AppealsController < ApplicationController
     
     conf.action_links.add :grant, :type => :member, :crud_type => :update, :method => :put, :position => false
     conf.action_links.add :deny, :type => :member, :crud_type => :update, :method => :put, :position => false
+    conf.action_links.add :undo, :type => :member, :crud_type => :update, :method => :put, :position => false
+  end
+  
+  def undo
+    process_action_link_action do |record|
+      self.successful = true
+      record.undo_appeal
+    end
   end
   
   def grant

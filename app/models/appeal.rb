@@ -12,6 +12,21 @@ class Appeal < ActiveRecord::Base
     "#{first_name} #{last_name} [#{uin}]"
   end
   
+  def undo_appeal
+    if appeal_status
+      update_attribute(:appeal_status, nil)
+      if Term.current.is_summer?
+        update_attribute(:final_status, "SAIL Suspension")
+      else
+        if initial_status.eql?("Suspension")
+          update_attribute(:final_status, "Suspension")
+        else
+          update_attribute(:final_status, "Departmental Suspension")
+        end
+      end
+    end
+  end
+  
   def grant_appeal
     update_attribute(:appeal_status, "Granted")
     if Term.current.is_summer?

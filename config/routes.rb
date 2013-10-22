@@ -44,6 +44,7 @@ GradeReview::Application.routes.draw do
     member do
       put 'grant'
       put 'deny'
+      put 'undo'
     end
     
     as_routes 
