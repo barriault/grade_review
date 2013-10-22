@@ -16,8 +16,8 @@
 			<li><%= link_to 'TAMU Suspension to Probation', tamu_suspension_to_probation_reports_path(format: 'csv') %></li>
 			<li><%= link_to 'TAMU Suspensions', tamu_suspensions_reports_path(format: 'csv') %></li>
 			<li><%= link_to 'Departmental Suspensions', departmental_suspensions_reports_path(format: 'csv') %></li>
-			<li><%= link_to 'Appeals', appeals_reports_path(format: 'csv') %></li>
 			<% end %>
+			<li><%= link_to 'Appeals', appeals_reports_path(format: 'csv') %></li>
 			<li class="divider"></li>
 			<li class="nav-header">Merge Data</li>
 			<% if current_term.is_summer? %>
