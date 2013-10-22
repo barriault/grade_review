@@ -40,7 +40,7 @@ class Term < ActiveRecord::Base
   end
   
   def percent_of_total
-    total_deficiency.to_f / total_undergraduate_enrollment.to_f
+    (total_deficiency.to_f / total_undergraduate_enrollment.to_f) * 100
   end
   
   def appeals
