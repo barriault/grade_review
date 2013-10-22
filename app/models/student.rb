@@ -28,6 +28,14 @@ class Student < ActiveRecord::Base
     end
   end
   
+  def final_status_select_options
+    if term.is_summer?
+      ["SAIL Good Standing", "SAIL Probation", "SAIL Suspension"]
+    else
+      initial_status.eql?("Probation") ? ["Probation", "Departmental Suspension", "Remove"] : ["Probation", "Suspension"]
+    end
+  end
+  
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
