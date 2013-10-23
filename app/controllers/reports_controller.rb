@@ -72,7 +72,7 @@ class ReportsController < ApplicationController
   
   def tamu_suspension_to_probation
     @students = Student.accessible_by(current_ability)
-      .where("initial_status = 'Suspension' AND final_status = 'Probation'")
+      .where("initial_status = 'Suspension' AND final_status = 'Probation' AND appeal_status IS NULL")
       .order("major, classification, last_name, first_name")
       
     respond_to do |format|
