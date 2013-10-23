@@ -1,29 +1,31 @@
-<h3>Terms</h3>
-<table class="table table-condensed table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Probation Term</th>
-			<th>Total Undergraduate Enrollment</th>
-      <th>Active?</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @terms.each do |term| %>
-    <tr>
-      <td><%= link_to term.code, edit_term_path(term) %></td>
-      <td><%= term.name %></td>
-      <td><%= term.probation_term %></td>
-			<td><%= term.total_undergraduate_enrollment %></td>
-			<% if term.active -%>
-      <td>Yes</td>
-			<% else -%>
-			<td><%= link_to("Make Active", make_active_term_path(term), :method => :put, :class => 'btn btn-mini btn-primary') %></td>
-			<% end -%>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<div class="well">
+	<h3>Terms</h3>
+	<table class="table table-condensed table-striped table-bordered">
+	  <thead>
+	    <tr>
+	      <th>Code</th>
+	      <th>Name</th>
+	      <th>Probation Term</th>
+				<th>Total Undergraduate Enrollment</th>
+	      <th>Active?</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  <% @terms.each do |term| %>
+	    <tr>
+	      <td><%= link_to term.code, edit_term_path(term) %></td>
+	      <td><%= term.name %></td>
+	      <td><%= term.probation_term %></td>
+				<td><%= term.total_undergraduate_enrollment %></td>
+				<% if term.active -%>
+	      <td>Yes</td>
+				<% else -%>
+				<td><%= link_to("Make Active", make_active_term_path(term), :method => :put, :class => 'btn btn-mini btn-primary') %></td>
+				<% end -%>
+	    </tr>
+	  <% end %>
+	  </tbody>
+	</table>
 
-<%= link_to("New term", new_term_path, :class => 'btn btn-mini') %>
+	<%= link_to("New term", new_term_path, :class => 'btn btn-mini') %>
+</div>

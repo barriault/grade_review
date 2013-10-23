@@ -1,29 +1,31 @@
-<h3>Users</h3>
-<table class="table table-condensed table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>NetID</th>
-      <th>Email</th>
-      <th>Roles</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= link_to user.name, edit_user_path(user) %></td>
-      <td><%= user.uid %></td>
-      <td><%= user.email %></td>
-      <td><%= user.roles.map(&:name).join(", ") unless user.roles.first.nil? %></td>
-      <td>
-        <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini btn-primary" type="button">Change Roles</a>
-        <%= render user %>
-				<%= link_to("Delete User", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini btn-danger') unless user == current_user %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<div class="well">
+	<h3>Users</h3>
+	<table class="table table-condensed table-striped table-bordered">
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th>NetID</th>
+	      <th>Email</th>
+	      <th>Roles</th>
+	      <th></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  <% @users.each do |user| %>
+	    <tr>
+	      <td><%= link_to user.name, edit_user_path(user) %></td>
+	      <td><%= user.uid %></td>
+	      <td><%= user.email %></td>
+	      <td><%= user.roles.map(&:name).join(", ") unless user.roles.first.nil? %></td>
+	      <td>
+	        <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini btn-primary" type="button">Change Roles</a>
+	        <%= render user %>
+					<%= link_to("Delete User", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini btn-danger') unless user == current_user %>
+	      </td>
+	    </tr>
+	  <% end %>
+	  </tbody>
+	</table>
 
-<%= link_to("New user", new_user_path, :class => 'btn btn-mini') %>
+	<%= link_to("New user", new_user_path, :class => 'btn btn-mini') %>
+</div>

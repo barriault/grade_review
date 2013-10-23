@@ -59,15 +59,15 @@ class AdminStudentsController < ApplicationController
   def import
     if params[:file]
       Student.import(params[:file])
-      redirect_to students_url, notice: "Students imported."
+      redirect_to admin_students_url, notice: "Students imported."
     else
-      redirect_to students_path, alert: "Please select a file."
+      redirect_to admin_students_path, alert: "Please select a file."
     end
   end  
   
   def remove_all
     Student.delete_all
-    redirect_to students_path, notice: "All students removed from database."
+    redirect_to admin_students_path, notice: "All students removed from database."
   end
   
 end

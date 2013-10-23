@@ -10,15 +10,29 @@
     <%= yield(:head) %>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
-    <div class="navbar navbar-fixed-top navbar-inverse">
+    <!-- <div class="navbar navbar-fixed-top navbar-inverse">
       <nav class="navbar-inner">
         <div class="container">
           <%= render 'layouts/navigation' %>
         </div>
       </nav>
-    </div>
+    </div> -->
     <div id="main" role="main">
       <div class="container">
+		    <div class="navbar navbar-inverse">
+		      <nav class="navbar-inner">
+		        <div class="container">
+							<%= link_to image_tag("AMLogo.png", :class => 'brand-logo'), root_path, :class => 'brand' %>
+		        </div>
+		      </nav>
+		    </div>
+		    <div class="navbar">
+		      <nav class="navbar-inner">
+		        <div class="container">
+		          <%= render 'layouts/navigation' %>
+		        </div>
+		      </nav>
+		    </div>
         <div class="content">
            <div class="row">
             <div class="span12">

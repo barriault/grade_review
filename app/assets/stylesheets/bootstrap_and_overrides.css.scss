@@ -1,8 +1,13 @@
-$navbarInverseBackground:                #500000;
-$navbarInverseBackgroundHighlight:       #333333;
+$navbarInverseBackground:                #4B1210;
+$navbarInverseBackgroundHighlight:       #4B1210;
+
+$navbarBackground:                #6C4A1E;
+$navbarBackgroundHighlight:       #341F02;
+$navbarLinkColor:                 #CFDADD;
+$navbarLinkColorHover:            #EDDD9E;
 
 @import "bootstrap";
 
-body { padding-top: 60px; }
+body { padding-top: 15px; }
 
 @import "bootstrap-responsive";
