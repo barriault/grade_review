@@ -10,10 +10,32 @@
 	</div>
 <% end %>
 
-<h3>Welcome to the TAMUG grade review portal.</h3>
+<div class="row">
+	<div class="span8">
+		<div class="well">
+			<div class="page-header">
+				<h3>Welcome to the TAMUG grade review portal.</h3>
+			</div>
 
-<p>This computer system and data herein are available only for authorized purposes by authorized users. Use for any other purpose may result in administrative/disciplinary actions or criminal prosecution against the user. Usage may be subject to security testing and monitoring. Applicable privacy laws establish the expectations of privacy.</p>
+			<p class="text-error">This computer system and data herein are available only for authorized purposes by authorized users. Use for any other purpose may result in administrative/disciplinary actions or criminal prosecution against the user. Usage may be subject to security testing and monitoring. Applicable privacy laws establish the expectations of privacy.</p>
 
-<p>For additional information please see: <%= link_to "IS Policies", "http://www.tamug.edu/computing/About%20Information%20Services/IS_Policies.html"%></p>
+			<p>For additional information please see: <%= link_to "IS Policies", "http://www.tamug.edu/computing/About%20Information%20Services/IS_Policies.html"%></p>
 
-<p>For security reasons, quit your web browser when you are finished accessing this application. Please contact the Help Desk at <strong>(409) 740-4714</strong> if you have any problems with this system.</p>
+			<p>For security reasons, quit your web browser when you are finished accessing this application. Please contact the Help Desk at <strong>(409) 740-4714</strong> if you have any problems with this system.</p>
+		</div>
+	</div>
+	
+	<div class="span4">
+		<div class="well">
+			<div class="page-header">
+				<h3>For access contact:</h3>
+			</div>
+			<% @users.each do |user| -%>
+			<address>
+				<strong><%= user.name %></strong><br>
+				<%= mail_to user.email %>
+			</address>
+			<% end -%>
+		</div>
+	</div>
+</div>
