@@ -12,11 +12,11 @@ class StudentsController < ApplicationController
     conf.list.per_page = 25
     conf.actions.swap :search, :field_search
     conf.field_search.columns = :initial_status, :final_status, :appeal_status, :major, :classification, :uin, :last_name, :first_name, :emailed
-    conf.action_links.add :send_emails, :type => :collection, :method => :put, :params => {:emailed => false}, :position => false
     conf.action_links.add :approve, :type => :member, :crud_type => :update, :method => :put, :position => false
+    
     conf.actions.exclude :show
-    # conf.action_links.add :change, :type => :member, :crud_type => :update, :method => :put, :position => false
-    # conf.action_links.add :remove, :type => :member, :crud_type => :update, :method => :put, :position => false
+    conf.actions.exclude :delete
+    conf.actions.exclude :create
     
     conf.columns[:initial_status].label = "Initial Status"
     conf.columns[:final_status].label = "Final Status"
@@ -32,18 +32,6 @@ class StudentsController < ApplicationController
     conf.columns[:term_institution_gpa_hrs].label = "Term Instn GPA Hrs"
     conf.columns[:term_institution_gpa].label = "Term Instn GPA"
     conf.columns[:first_term].label = "First Term?"
-  end
-  
-  def send_emails
-    process_action_link_action do
-      self.successful = true
-      each_record_in_page { |record| 
-        unless record.emailed
-          record.send_email
-          record.update_attribute(:emailed, true)
-        end
-      }
-    end
   end
   
   def approve
@@ -69,20 +57,6 @@ class StudentsController < ApplicationController
       self.successful = true
       record.update_attribute(:final_status, "Removed")
     end
-  end
-  
-  def import
-    if params[:file]
-      Student.import(params[:file])
-      redirect_to students_url, notice: "Students imported."
-    else
-      redirect_to students_path, alert: "Please select a file."
-    end
-  end  
-  
-  def remove_all
-    Student.delete_all
-    redirect_to students_path, notice: "All students removed from database."
   end
   
 end

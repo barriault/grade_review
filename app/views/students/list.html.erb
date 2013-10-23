@@ -1,16 +1,3 @@
-<% if can? :manage, Student %>
-<div class="well">
-	<div class="page-header">
-		<h4>Import Students into <%= current_term.name %> Term</h4>
-	</div>
-<%= form_tag import_students_path, multipart: true do %>
-	
-	<%= file_field_tag :file %>
-	<%= submit_tag "Import", :class => 'btn btn-primary' %>
-<% end %>
-</div>
-<% end %>
-
 <div class="alert alert-info">
   <button type="button" class="close" data-dismiss="alert">&#215;</button>
   Review each student's <span class="label label-info">Initial Status</span>. Clicking the <span class="label label-info">Approve</span> 
@@ -20,11 +7,6 @@
 	<span class="label label-info">Search</span> function to limit the list or find an individual student if needed.
 </div>
 
-
 <div class="well">
 <%= render :super %>
 </div>
-
-<% if can? :manage, Student %>
-<%= link_to "Remove All Students", remove_all_students_path, :data => { :confirm => "Are you sure?" }, :method => :get, :class => "btn btn-danger" %>
-<% end %>

@@ -1,0 +1,16 @@
+<div class="well">
+	<div class="page-header">
+		<h4>Import Students into <%= current_term.name %> Term</h4>
+	</div>
+	<%= form_tag import_admin_students_path, multipart: true do %>
+	
+		<%= file_field_tag :file %>
+		<%= submit_tag "Import", :class => 'btn btn-primary' %>
+	<% end %>
+</div>
+
+<div class="well">
+<%= render :super %>
+</div>
+
+<%= link_to "Remove All Students", remove_all_admin_students_path, :data => { :confirm => "Are you sure?" }, :method => :get, :class => "btn btn-danger" %>

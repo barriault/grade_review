@@ -27,12 +27,6 @@ GradeReview::Application.routes.draw do
   
   resources :students do 
     
-    collection do
-      put :send_emails
-      post :import
-      get :remove_all
-    end
-    
     member do
       put 'approve'
     end
@@ -48,6 +42,17 @@ GradeReview::Application.routes.draw do
     end
     
     as_routes 
+  end
+  
+  resources :admin_students do
+    
+    collection do
+      put :send_emails
+      post :import
+      get :remove_all
+    end
+    
+    as_routes
   end
   
   resources :addresses do 
