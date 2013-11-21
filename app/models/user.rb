@@ -13,4 +13,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.users_report(options = {})
+    CSV.generate(options) do |csv|
+      csv << ["Name", "Email", "Roles"]
+      
+      all.each do |user|
+        roles = user.roles.map {|r| r.name.titleize.upcase}.join(", ") unless user.roles.first.nil?
+        csv << [user.name, user.email, roles]
+      end
+    end
+  end
 end

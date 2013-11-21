@@ -122,4 +122,13 @@ class ReportsController < ApplicationController
     @term = Term.find(params[:id])
   end
   
+  def users
+    @users = User.accessible_by(current_ability)
+    
+    respond_to do |format|
+      format.csv { send_data @users.users_report }
+      format.html
+    end
+  end
+  
 end

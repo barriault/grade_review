@@ -22,6 +22,8 @@ GradeReview::Application.routes.draw do
       get :appeals
       
       get :scholastic_deficiency_by_term
+      
+      get :users
     end
   end
   

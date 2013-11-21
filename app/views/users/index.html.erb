@@ -16,7 +16,7 @@
 	      <td><%= link_to user.name, edit_user_path(user) %></td>
 	      <td><%= user.uid %></td>
 	      <td><%= user.email %></td>
-	      <td><%= user.roles.map(&:name).join(", ") unless user.roles.first.nil? %></td>
+	      <td><%= user.roles.map {|r| r.name.titleize.upcase}.join(", ") unless user.roles.first.nil? %></td>
 	      <td>
 	        <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini btn-primary" type="button">Change Roles</a>
 	        <%= render user %>
