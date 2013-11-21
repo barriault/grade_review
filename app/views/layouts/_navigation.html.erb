@@ -42,6 +42,14 @@
 			<li><%= link_to 'Departmental Suspension', departmental_suspension_letter_path %></li>
 			<li><%= link_to 'Suspension', suspension_letter_path %></li>
 			<% end %>
+			<li class="divider"></li>
+			<li class="nav-header">Letters (DOCX)</li>
+			<% if current_term.is_summer? %>
+			<% else %>
+			<li><%= link_to 'Probation', "/files/probation letter.docx" %></li>
+			<li><%= link_to 'Suspension', "/files/suspension letter.docx" %></li>
+			<li><%= link_to 'Labels', "/files/Labels.docx" %></li>
+			<% end %>
 		</ul>
 	</li>
 	<% if current_user.has_role? :admin %>
