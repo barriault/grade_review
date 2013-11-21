@@ -7,6 +7,7 @@
 	    <tr>
 	      <th>Major</th>
 	      <th>Suspensions</th>
+	      <th>Dept Suspensions</th>
 				<th>Probations</th>
 	      <th>Total Deficiency</th>
 				<th>Appeals</th>
@@ -19,6 +20,7 @@
 	    <tr>
 	      <td><%= major %></td>
 	      <td><%= @term.suspensions_by_major(major) %></td>
+	      <td><%= @term.departmental_suspensions_by_major(major) %></td>
 	      <td><%= @term.probations_by_major(major) %></td>
 				<td><%= @term.total_deficiency_by_major(major) %></td>
 				<td><%= @term.appeals_by_major(major) %></td>
@@ -29,7 +31,8 @@
 		  <tr class="info">
 		    <th>Total</td>
 		    <th><%= @term.suspensions %></td>
-		    <th><%= @term.probations %></td>
+			  <th><%= @term.departmental_suspensions %></td>
+				<th><%= @term.probations %></td>
 				<th><%= @term.total_deficiency %></td>
 				<th><%= @term.appeals %></td>
 				<th><%= @term.appeals_granted %></td>

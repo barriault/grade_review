@@ -28,15 +28,19 @@ class Term < ActiveRecord::Base
   end
   
   def suspensions
-    students.where(Student.arel_table[:final_status].matches("%Suspension%")).count
+    students.where(Student.arel_table[:final_status].eq_any(["Suspension", "SAIL Suspension"])).count
+  end
+  
+  def departmental_suspensions
+    students.where(Student.arel_table[:final_status].eq("Departmental Suspension")).count
   end
   
   def probations
-    students.where(Student.arel_table[:final_status].matches("%Probation%")).count
+    students.where(Student.arel_table[:final_status].eq_any(["Probation", "SAIL Probation"])).count
   end
   
   def total_deficiency
-    students.where(Student.arel_table[:final_status].matches("%Probation%").or(Student.arel_table[:final_status].matches("%Suspension%"))).count
+    students.where(Student.arel_table[:final_status].eq_any(["Probation", "SAIL Probation", "Suspension", "Departmental Suspension", "SAIL Suspension"])).count
   end
   
   def percent_of_total
@@ -60,15 +64,19 @@ class Term < ActiveRecord::Base
   end
   
   def suspensions_by_major(major)
-    students.where(major: major).where(Student.arel_table[:final_status].matches("%Suspension%")).count
+    students.where(major: major).where(Student.arel_table[:final_status].eq_any(["Suspension", "SAIL Suspension"])).count
+  end
+  
+  def departmental_suspensions_by_major(major)
+    students.where(major: major).where(Student.arel_table[:final_status].eq("Departmental Suspension")).count
   end
   
   def probations_by_major(major)
-    students.where(major: major).where(Student.arel_table[:final_status].matches("%Probation%")).count
+    students.where(major: major).where(Student.arel_table[:final_status].eq_any(["Probation", "SAIL Probation"])).count
   end
   
   def total_deficiency_by_major(major)
-    students.where(major: major).where(Student.arel_table[:final_status].matches("%Probation%").or(Student.arel_table[:final_status].matches("%Suspension%"))).count
+    students.where(major: major).where(Student.arel_table[:final_status].eq_any(["Probation", "SAIL Probation", "Suspension", "Departmental Suspension", "SAIL Suspension"])).count
   end
   
   def appeals_by_major(major)
