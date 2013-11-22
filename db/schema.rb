@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131022140633) do
+ActiveRecord::Schema.define(:version => 20131122134237) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(:version => 20131022140633) do
     t.datetime "created_at",                                  :null => false
     t.datetime "updated_at",                                  :null => false
     t.string   "appeal_status"
+    t.string   "admit_status"
+    t.string   "admit_type"
   end
 
   add_index "students", ["appeal_status"], :name => "index_students_on_appeal_status"

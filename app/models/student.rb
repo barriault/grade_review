@@ -1,7 +1,7 @@
 class Student < ActiveRecord::Base
   attr_accessible :address_1, :address_2, :city, :classification, :cum_institution_gpa, :cum_overall_gpa_hrs, :degree_candidate, 
     :email, :emailed, :first_name, :first_term, :last_name, :major, :phone_number, :postal_code, :state, :term_institution_gpa, 
-    :term_institution_gpa_hrs, :uin, :var_cum_qpts, :var_term_qpts, :initial_status, :final_status, :term
+    :term_institution_gpa_hrs, :uin, :var_cum_qpts, :var_term_qpts, :initial_status, :final_status, :term, :admit_type, :admit_status
     
   belongs_to :term
   
@@ -9,6 +9,10 @@ class Student < ActiveRecord::Base
   
   def to_label
     "#{first_name} #{last_name} [#{uin}] - #{initial_status}"
+  end
+  
+  def ap_type
+    admit_type if admit_status.eql?("AP")
   end
   
   def send_email
