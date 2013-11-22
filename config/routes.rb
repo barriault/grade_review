@@ -36,6 +36,16 @@ GradeReview::Application.routes.draw do
     as_routes 
   end
   
+  resources :appeal_recommendations do 
+    member do
+      put 'grant'
+      put 'deny'
+      put 'undo'
+    end
+    
+    as_routes 
+  end
+  
   resources :appeals do 
     member do
       put 'grant'

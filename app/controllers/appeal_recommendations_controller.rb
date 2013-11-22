@@ -1,7 +1,7 @@
-class AppealsController < ApplicationController
+class AppealRecommendationsController < ApplicationController
   before_filter :authenticate_user!
   
-  active_scaffold :appeal do |conf|
+  active_scaffold :appeal_recommendation do |conf|
     conf.actions = [:list, :search]
     
     conf.columns = [:term, :final_status, :recommended_appeal_status, :appeal_status, :major, :classification, :uin, :last_name, :first_name]

@@ -5,6 +5,7 @@ class Ability
     user ||= User.new # guest user (not logged in)
     
     alias_action :read, :update, :show_search, :approve, :to => :manage_student
+    alias_action :read, :update, :show_search, :grant, :deny, :to => :recommend_appeal
     alias_action :read, :update, :show_search, :grant, :deny, :to => :manage_appeal
     alias_action :read, :update, :show_search, :to => :manage_address
     
@@ -25,30 +26,37 @@ class Ability
     
     if user.has_role? :marb
       can :manage_student, Student, :major => ['MARB', 'MARF']
+      can :recommend_appeal, AppealRecommendation, :major => ['MARB', 'MARF']
     end
     
     if user.has_role? :mare
       can :manage_student, Student, :major => ['MARR', 'MARE']
+      can :recommend_appeal, AppealRecommendation, :major => ['MARR', 'MARE']
     end
     
     if user.has_role? :mars
       can :manage_student, Student, :major => ['MARS', 'OCRE', 'USGA']
+      can :recommend_appeal, AppealRecommendation, :major => ['MARS', 'OCRE', 'USGA']
     end
     
     if user.has_role? :gacd
       can :manage_student, Student, :major => ['GACD', 'MAST',]
+      can :recommend_appeal, AppealRecommendation, :major => ['GACD', 'MAST',]
     end
     
     if user.has_role? :mase
       can :manage_student, Student, :major => ['MASE', 'MASL']
+      can :recommend_appeal, AppealRecommendation, :major => ['MASE', 'MASL']
     end
     
     if user.has_role? :mara
       can :manage_student, Student, :major => 'MARA'
+      can :recommend_appeal, AppealRecommendation, :major => 'MARA'
     end
     
     if user.has_role? :mart
       can :manage_student, Student, :major => 'MART'
+      can :recommend_appeal, AppealRecommendation, :major => 'MART'
     end
     
   end

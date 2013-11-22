@@ -1,7 +1,7 @@
 class Appeal < ActiveRecord::Base
   self.table_name = "students"
   
-  attr_accessible :appeal_status
+  attr_accessible :appeal_status, :recommended_appeal_status
     
   belongs_to :term
   

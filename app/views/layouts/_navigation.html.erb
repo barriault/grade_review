@@ -1,7 +1,10 @@
 <ul class="nav">
 <% if user_signed_in? %>
 	<li><%= link_to 'Students', students_path %></li>
-	<% if can? :update, Appeal %>
+	<% if can? :recommend_appeal, AppealRecommendation %>
+	<li><%= link_to 'Appeal Recommendations', appeal_recommendations_path %></li>
+	<% end %>
+	<% if can? :manage_appeal, Appeal %>
 	<li><%= link_to 'Appeals', appeals_path %></li>
 	<% end %>
 	<% if can? :update, Address %>

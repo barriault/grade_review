@@ -1,5 +1,8 @@
 <div class="well">
-	<h3>Users</h3>
+	<h3>
+		Users
+		<span class="pull-right"><%= link_to "Download CSV", users_reports_path(format: 'csv'), :class => 'btn btn-mini btn-primary' %></span>
+	</h3>
 	<table class="table table-condensed table-striped table-bordered">
 	  <thead>
 	    <tr>

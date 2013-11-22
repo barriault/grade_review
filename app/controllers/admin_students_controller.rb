@@ -7,13 +7,13 @@ class AdminStudentsController < ApplicationController
     
     conf.actions.exclude :show
     
-    conf.columns = [:term, :initial_status, :final_status, :appeal_status, :uin, :major, :classification, :last_name, :first_name, :address_1, :address_2, :city, :state, :postal_code, 
+    conf.columns = [:term, :initial_status, :final_status, :recommended_appeal_status, :appeal_status, :uin, :major, :classification, :last_name, :first_name, :address_1, :address_2, :city, :state, :postal_code, 
       :email, :degree_candidate, :cum_overall_gpa_hrs, :cum_institution_gpa, :var_cum_qpts, :var_term_qpts, :term_institution_gpa_hrs, 
       :term_institution_gpa, :first_term, :phone_number, :emailed]
       
-    conf.list.columns = [:term, :initial_status, :final_status, :appeal_status, :major, :classification, :uin, :last_name, :first_name, :emailed]
+    conf.list.columns = [:term, :initial_status, :final_status, :recommended_appeal_status, :appeal_status, :major, :classification, :uin, :last_name, :first_name, :emailed]
     
-    conf.update.columns = [:initial_status, :final_status, :appeal_status, :uin, :major, :classification, :last_name, :first_name, :address_1, :address_2, :city, :state, :postal_code, 
+    conf.update.columns = [:initial_status, :final_status, :recommended_appeal_status, :appeal_status, :uin, :major, :classification, :last_name, :first_name, :address_1, :address_2, :city, :state, :postal_code, 
       :email, :degree_candidate, :cum_overall_gpa_hrs, :cum_institution_gpa, :var_cum_qpts, :var_term_qpts, :term_institution_gpa_hrs, 
       :term_institution_gpa, :first_term, :phone_number, :emailed]
     
@@ -29,6 +29,7 @@ class AdminStudentsController < ApplicationController
 
     conf.columns[:initial_status].label = "Initial Status"
     conf.columns[:final_status].label = "Final Status"
+    conf.columns[:recommended_appeal_status].label = "Recom'd Appeal Status"
     conf.columns[:appeal_status].label = "Appeal Status"
     conf.columns[:degree_candidate].label = "Deg Cand?"
     conf.columns[:classification].label = "Class"
