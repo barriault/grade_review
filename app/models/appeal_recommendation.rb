@@ -13,7 +13,7 @@ class AppealRecommendation < ActiveRecord::Base
   end
   
   def undo_appeal
-    if appeal_status.present?
+    unless appeal_status.present?
       update_attribute(:recommended_appeal_status, nil)
     end
   end

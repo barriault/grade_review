@@ -21,7 +21,7 @@ class AdminStudentsController < ApplicationController
     conf.list.per_page = 500
     
     conf.actions.swap :search, :field_search
-    conf.field_search.columns = :initial_status, :final_status, :appeal_status, :uin, :major, :classification, :last_name, :first_name, :address_1, :address_2, :city, :state, :postal_code, 
+    conf.field_search.columns = :initial_status, :final_status, :recommended_appeal_status, :appeal_status, :uin, :major, :classification, :last_name, :first_name, :address_1, :address_2, :city, :state, :postal_code, 
       :email, :degree_candidate, :cum_overall_gpa_hrs, :cum_institution_gpa, :var_cum_qpts, :var_term_qpts, :term_institution_gpa_hrs, 
       :term_institution_gpa, :first_term, :phone_number, :emailed
 
