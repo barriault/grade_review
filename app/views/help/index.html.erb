@@ -1,0 +1,85 @@
+<div class="row">
+	<div class="span8">
+		<div class="well">
+			<div class="page-header">
+				<h3>Column Definitions</h3>
+			</div>
+
+			<dl class="dl-horizontal">
+			  <dt>Cum OA GPA Hrs</dt>
+			  <dd>Cumulative Overall GPA Hours</dd>
+				
+			  <dt>Cum Instn GPA</dt>
+			  <dd>Cumulative Institution GPA</dd>
+				
+			  <dt>Var Cum Qpts</dt>
+			  <dd>...</dd>
+				
+			  <dt>Var Term Qpts</dt>
+			  <dd>...</dd>
+				
+			  <dt>Term Instn GPA Hrs</dt>
+			  <dd>Term Institution GPA Hours</dd>
+				
+			  <dt>Term Instn GPA</dt>
+			  <dd>Term Institution GPA</dd>
+				
+			  <dt>AS (Admission Status)</dt>
+			  <dd>
+					<ul>
+						<li>AA	ADMITTED/ACADEMICS/EARLY NOTIFICATION</li>
+						<li>AB	ADMITTED/TOP TEN PERCENT/REVIEW</li>
+						<li>AC	ADMIT CONDITIONAL - GRADUATE</li>
+						<li>AD	ACADEMIC ADMIT IN TOP-TEN PERCENT</li>
+						<li>AF	ADMIT FULL - GRADUATE</li>
+						<li>AG	ADMITTED/PROBATION/HOLD FOR GRADES</li>
+						<li>AM	PROV ADMIT MET REQ</li>
+						<li>AO	ADMITTED/REVIEW/OTHER</li>
+						<li>AP	ADMITTED/PROVISIONAL/PROBATION</li>
+						<li>AR	ADMITTED/REVIEW</li>
+						<li>AS	ADMITTED/SPECIAL(REQUIRES REF REASON)</li>
+						<li>AT	ADMITTED/TOP TEN PERCENT/ACADEMICS</li>
+						<li>AU	ADMIT FULL - GRADUATE - NL</li>
+						<li>AV	ADMIT COND - GRAD - NL</li>
+						<li>AW	ADMITTED/WAIT LIST</li>
+						<li>AX	ADMITTED/BLINN TEAM</li>
+						<li>AY	ADMIT - UGRAD - NL</li>
+						<li>AZ	ADMIT TR W/CURRENT TEAM - NL</li>
+					</ul>
+				</dd>
+				
+			  <dt>AT (Admission Type)</dt>
+			  <dd>
+					<ul>
+						<li>FR FRESHMAN</li>
+						<li>GR GRADUATE</li>
+						<li>IF INTERNATIONAL FRESHMEN</li>
+						<li>IG INTERNATIONAL GRADUATE</li>
+						<li>IT INTERNATIONAL TRANSFER</li>
+						<li>P	PROFESSIONAL</li>
+						<li>PB POST-BACCALAUREATE</li>
+						<li>RE READMISSION - UNDERGRADUATE</li>
+						<li>SM SUMMER TRANSIENT</li>
+						<li>TR TRANSFER</li>
+						<li>X READMISSION - GRADUATE</li>
+					</ul>
+				</dd>
+			</dl>
+			
+		</div>
+	</div>
+	
+	<div class="span4">
+		<div class="well">
+			<div class="page-header">
+				<h3>For access contact:</h3>
+			</div>
+			<% @users.each do |user| -%>
+			<address>
+				<strong><%= user.name %></strong><br>
+				<%= mail_to user.email %>
+			</address>
+			<% end -%>
+		</div>
+	</div>
+</div>

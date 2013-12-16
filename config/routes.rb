@@ -1,5 +1,7 @@
 GradeReview::Application.routes.draw do
   
+  resources :help, only: [:index]
+
   resources :reports do
     member do
       get :scholastic_deficiency_by_major  
