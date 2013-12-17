@@ -64,7 +64,7 @@ class Student < ActiveRecord::Base
   def self.merge_data(options = {})
     CSV.generate(options) do |csv|
       csv << ["UIN", "Major", "Class", "Last Name", "First Name", "Address 1", "Address 2", "City", "State", "Postal Code"]
-      
+
       all.each do |student|
         csv << [student.uin, student.major, student.classification, student.last_name, student.first_name, student.address_1, 
           student.address_2, student.city, student.state, student.postal_code]
@@ -74,11 +74,13 @@ class Student < ActiveRecord::Base
   
   def self.alpha_roster(options = {})
     CSV.generate(options) do |csv|
-      csv << ["UIN", "Last Name", "First Name", "Initial Status", "Final Status", "Appeal Status", "Major", "Class"]
+      csv << ["UIN", "Last Name", "First Name", "Initial Status", "Final Status", "Appeal Status", "Major", "Class", "Cum OA GPA Hrs", 
+        "Cum Instn GPA", "Var Cum Qpts", "Var Term Qpts", "Term Instn GPA Hrs", "Term Instn GPA", "AS", "AT"]
       
       all.each do |student|
         csv << [student.uin, student.last_name, student.first_name, student.initial_status, student.final_status, student.appeal_status,
-          student.major, student.classification]
+          student.major, student.classification, student.cum_overall_gpa_hrs, student.cum_institution_gpa, student.var_cum_qpts,
+          student.var_term_qpts, student.term_institution_gpa_hrs, student.term_institution_gpa, student.admit_status, student.admit_type]
       end
     end
   end

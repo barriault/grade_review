@@ -16,6 +16,14 @@
 				<th>Appeal Status</th>
 				<th>Major</th>
 				<th>Class</th>
+				<th>Cum OA GPA Hrs</th>
+				<th>Cum Instn GPA</th>
+				<th>Var Cum Qpts</th>
+				<th>Var Term Qpts</th>
+				<th>Term Instn GPA Hrs</th>
+				<th>Term Instn GPA</th>
+				<th>AS</th>
+				<th>AT</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -29,6 +37,14 @@
 				<td><%= student.appeal_status %></td>
 				<td><%= student.major %></td>
 				<td><%= student.classification %></td>
+				<td><%= student.cum_overall_gpa_hrs %></td>
+				<td><%= student.cum_institution_gpa %></td>
+				<td><%= student.var_cum_qpts %></td>
+				<td><%= student.var_term_qpts %></td>
+				<td><%= student.term_institution_gpa_hrs %></td>
+				<td><%= student.term_institution_gpa %></td>
+				<td><%= student.admit_status %></td>
+				<td><%= student.admit_type %></td>
 	    </tr>
 	  <% end %>
 	  </tbody>
@@ -38,6 +54,14 @@
 	      <th><%= @students.count %></th>
 				<th></th>
 	      <th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
 				<th></th>
 				<th></th>
 				<th></th>
