@@ -5,8 +5,8 @@ class Ability
     user ||= User.new # guest user (not logged in)
     
     alias_action :read, :update, :show_search, :approve, :to => :manage_student
-    alias_action :read, :update, :show_search, :grant, :deny, :to => :recommend_appeal
-    alias_action :read, :update, :show_search, :grant, :deny, :to => :manage_appeal
+    alias_action :read, :update, :show_search, :grant, :deny, :undo, :to => :recommend_appeal
+    alias_action :read, :update, :show_search, :grant, :deny, :undo, :to => :manage_appeal
     alias_action :read, :update, :show_search, :to => :manage_address
     
     if user.has_role? :admin
