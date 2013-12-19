@@ -17,8 +17,8 @@ class AdminStudent < ActiveRecord::Base
     case final_status
     when "Probation"
       LetterMailer.probation(self).deliver
-    when "Suspension"
-      LetterMailer.suspension(self).deliver
+    # when "Suspension"
+    #   LetterMailer.suspension(self).deliver
     when "Departmental Suspension"
       LetterMailer.departmental_suspension(self).deliver
     when "SAIL Good Standing"
