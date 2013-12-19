@@ -19,7 +19,7 @@ class AdminStudent < ActiveRecord::Base
       LetterMailer.probation(self).deliver
     when "Suspension"
       LetterMailer.suspension(self).deliver
-    when "Dept Susp"
+    when "Departmental Suspension"
       LetterMailer.departmental_suspension(self).deliver
     when "SAIL Good Standing"
       LetterMailer.sail_good_standing(self).deliver
