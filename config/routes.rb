@@ -18,7 +18,7 @@ GradeReview::Application.routes.draw do
       get :sail_probation_merge_data
       get :sail_suspension_merge_data
       
-      get :tamu_suspension_to_probation
+      get :removal_from_tamu_suspension
       get :tamu_suspensions
       get :departmental_suspensions
       get :appeals

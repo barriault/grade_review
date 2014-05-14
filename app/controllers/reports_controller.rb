@@ -70,7 +70,7 @@ class ReportsController < ApplicationController
     end
   end
   
-  def tamu_suspension_to_probation
+  def removal_from_tamu_suspension
     @students = Student.accessible_by(current_ability)
       .where("initial_status = 'Suspension' AND (final_status = 'Probation' OR final_status = 'Departmental Suspension') AND appeal_status IS NULL")
       .order("major, classification, last_name, first_name")

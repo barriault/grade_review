@@ -1,0 +1,9 @@
+<div class="well">
+	<div class="page-header">
+		<h3>
+			<%= Term.current.name %> Removal from TAMU Suspension
+			<span class="pull-right"><%= link_to "Download CSV", removal_from_tamu_suspension_reports_path(format: 'csv'), :class => 'btn btn-mini btn-primary' %></span>
+		</h3>
+	</div>
+	<%= render 'standard_report' %>
+</div>
