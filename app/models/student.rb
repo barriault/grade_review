@@ -36,7 +36,7 @@ class Student < ActiveRecord::Base
     if term.is_summer?
       ["SAIL Good Standing", "SAIL Probation", "SAIL Suspension"]
     else
-      initial_status.eql?("Probation") ? ["Probation", "Departmental Suspension", "Remove"] : ["Probation", "Suspension"]
+      initial_status.eql?("Probation") ? ["Probation", "Departmental Suspension", "Remove"] : ["Probation", "Suspension", "Departmental Suspension"]
     end
   end
   

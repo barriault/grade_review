@@ -14,8 +14,8 @@ class Ability
     end
     
     if user.has_role? :super_user
-      can [:read, :show_search], Student
-      # can :manage_student, Student
+      # can [:read, :show_search], Student
+      can :manage_student, Student
       can :manage_appeal, Appeal
       can :manage_address, Address
     end
@@ -26,50 +26,50 @@ class Ability
     end
     
     if user.has_role? :marb
-      can [:read, :show_search], Student
-      # can :manage_student, Student, :major => ['MARB', 'MARF']
+      # can [:read, :show_search], Student
+      can :manage_student, Student, :major => ['MARB', 'MARF']
       can :recommend_appeal, AppealRecommendation, :major => ['MARB', 'MARF']
       can :manage_address, Address, :major => ['MARB', 'MARF']
     end
     
     if user.has_role? :mare
-      can [:read, :show_search], Student
-      # can :manage_student, Student, :major => ['MARR', 'MARE']
+      # can [:read, :show_search], Student
+      can :manage_student, Student, :major => ['MARR', 'MARE']
       can :recommend_appeal, AppealRecommendation, :major => ['MARR', 'MARE']
       can :manage_address, Address, :major => ['MARR', 'MARE']
     end
     
     if user.has_role? :mars
-      can [:read, :show_search], Student
-      # can :manage_student, Student, :major => ['MARS', 'OCRE', 'USGA']
+      # can [:read, :show_search], Student
+      can :manage_student, Student, :major => ['MARS', 'OCRE', 'USGA']
       can :recommend_appeal, AppealRecommendation, :major => ['MARS', 'OCRE', 'USGA']
       can :manage_address, Address, :major => ['MARS', 'OCRE', 'USGA']
     end
     
     if user.has_role? :gacd
-      can [:read, :show_search], Student
-      # can :manage_student, Student, :major => ['GACD', 'MAST']
+      # can [:read, :show_search], Student
+      can :manage_student, Student, :major => ['GACD', 'MAST']
       can :recommend_appeal, AppealRecommendation, :major => ['GACD', 'MAST']
       can :manage_address, Address, :major => ['GACD', 'MAST']
     end
     
-    if user.has_role? :mase
-      can [:read, :show_search], Student
-      # can :manage_student, Student, :major => ['MASE', 'MASL']
-      can :recommend_appeal, AppealRecommendation, :major => ['MASE', 'MASL']
-      can :manage_address, Address, :major => ['MASE', 'MASL']
+    if user.has_role? :ocse
+      # can [:read, :show_search], Student
+      can :manage_student, Student, :major => ['OCSE', 'OCSL']
+      can :recommend_appeal, AppealRecommendation, :major => ['OCSE', 'OCSL']
+      can :manage_address, Address, :major => ['OCSE', 'OCSL']
     end
     
     if user.has_role? :mara
-      can [:read, :show_search], Student
-      # can :manage_student, Student, :major => 'MARA'
+      # can [:read, :show_search], Student
+      can :manage_student, Student, :major => 'MARA'
       can :recommend_appeal, AppealRecommendation, :major => 'MARA'
       can :manage_address, Address, :major => 'MARA'
     end
     
     if user.has_role? :mart
-      can [:read, :show_search], Student
-      # can :manage_student, Student, :major => 'MART'
+      # can [:read, :show_search], Student
+      can :manage_student, Student, :major => 'MART'
       can :recommend_appeal, AppealRecommendation, :major => 'MART'
       can :manage_address, Address, :major => 'MART'
     end
