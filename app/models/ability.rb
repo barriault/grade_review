@@ -13,6 +13,12 @@ class Ability
       can :manage, :all
     end
     
+    if user.has_role?(:sail) && Term.current.is_summer?
+      can :manage_student, Student
+      can :recommend_appeal, AppealRecommendation
+      can :manage_address, Address
+    end
+    
     if user.has_role? :super_user
       # can [:read, :show_search], Student
       can :manage_student, Student
