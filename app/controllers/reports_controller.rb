@@ -20,6 +20,26 @@ class ReportsController < ApplicationController
     end
   end
   
+  def probation_level_1_merge_data
+    @students = Student.accessible_by(current_ability)
+      .where(:final_status => "Probation Level 1")
+      .order("major, classification, last_name, first_name")
+      
+    respond_to do |format|
+      format.csv { send_data @students.merge_data }
+    end
+  end
+  
+  def probation_level_2_merge_data
+    @students = Student.accessible_by(current_ability)
+      .where(:final_status => "Probation Level 2")
+      .order("major, classification, last_name, first_name")
+      
+    respond_to do |format|
+      format.csv { send_data @students.merge_data }
+    end
+  end
+  
   def suspension_merge_data
     @students = Student.accessible_by(current_ability)
       .where(:final_status => "Suspension")
@@ -72,7 +92,7 @@ class ReportsController < ApplicationController
   
   def removal_from_tamu_suspension
     @students = Student.accessible_by(current_ability)
-      .where("initial_status = 'Suspension' AND (final_status = 'Probation' OR final_status = 'Departmental Suspension') AND appeal_status IS NULL")
+      .where("initial_status = 'Suspension' AND (final_status = 'Probation Level 1' OR final_status = 'Probation Level 1' OR final_status = 'Departmental Suspension') AND appeal_status IS NULL")
       .order("major, classification, last_name, first_name")
       
     respond_to do |format|

@@ -17,10 +17,12 @@ class Student < ActiveRecord::Base
   
   def send_email
     case final_status
-    when "Probation"
-      LetterMailer.probation(self).deliver
-    when "Suspension"
-      LetterMailer.suspension(self).deliver
+    when "Probation Level 1"
+      LetterMailer.probation_level_1(self).deliver
+    when "Probation Level 2"
+      LetterMailer.probation_level_2(self).deliver
+      # when "Suspension"
+      # LetterMailer.suspension(self).deliver
     when "Departmental Suspension"
       LetterMailer.departmental_suspension(self).deliver
     when "SAIL Good Standing"
@@ -36,7 +38,7 @@ class Student < ActiveRecord::Base
     if term.is_summer?
       ["SAIL Good Standing", "SAIL Probation", "SAIL Suspension"]
     else
-      initial_status.eql?("Probation") ? ["Probation", "Departmental Suspension", "Remove"] : ["Probation", "Suspension", "Departmental Suspension"]
+      initial_status.eql?("Probation Level 1") ? ["Probation Level 1", "Probation Level 2", "Departmental Suspension", "Remove"] : ["Probation Level 1", "Probation Level 2", "Suspension", "Departmental Suspension"]
     end
   end
   

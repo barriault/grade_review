@@ -46,10 +46,10 @@ class StudentsController < ApplicationController
   def change
     process_action_link_action do |record|
       self.successful = true
-      if record.initial_status.eql?("Probation")
+      if record.initial_status.eql?("Probation Level 1")
         record.update_attribute(:final_status, "Dept Susp")
       else
-        record.update_attribute(:final_status, "Probation")
+        record.update_attribute(:final_status, "Probation Level 1")
       end
     end
   end

@@ -4,6 +4,16 @@ class MailPreview < MailView
     student = get_student
     mail = LetterMailer.probation(student)
   end
+
+  def probation_level_1
+    student = get_student
+    mail = LetterMailer.probation_level_1(student)
+  end
+  
+  def probation_level_2
+    student = get_student
+    mail = LetterMailer.probation_level_2(student)
+  end
   
   def departmental_suspension
     student = get_student

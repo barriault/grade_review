@@ -1,0 +1,75 @@
+<%= Date.today.strftime("%A, %B %d, %Y") %>
+
+
+<%= "#{@student.first_name} #{@student.last_name}"%>
+<%= @student.address_1 %>
+<% unless @student.address_2.blank? -%>
+<%= @student.address_2 %>
+<% end -%>
+<%= "#{@student.city}, #{@student.state} #{@student.postal_code}"%>
+
+
+Dear <%= @student.first_name %>, 
+
+
+Upon receipt of your final grade report, your academic record was reviewed at the departmental and institutional level.  Since your grade point ratio is below the minimum level required to maintain satisfactory scholastic standing, you will be placed on Scholastic Probation for the <%= @student.term.probation_term %> semester and until such time as your grade point ratio becomes satisfactory.
+
+Scholastic Probation constitutes conditional permission to continue in the University after having become scholastically deficient.  You are responsible for learning TAMUG academic rules.  Review academic rules and their important details at www.tamug.edu/stu-life/studentrules.html.  At the end of the <%= @student.term.probation_term %> semester, your semester and cumulative grade point ratio must be equal to or greater than 2.0.
+
+Because you are a first time student being placed on Scholastic Probation for the <%= @student.term.probation_term %> semester, your terms for continued enrollment include being enrolled in a mandatory Academic Coaching & Success Program.  As a part of the coaching program, you will be required to meet with your assigned coach four times throughout the <%= @student.term.probation_term %> semester to assess previous academic performance, become familiar with your personal learning style, learn how/when to connect to resources on campus, and to develop self-authorship towards developing a plan moving forward through and after probation.
+
+We look forward to supporting you in fulfilling your academic goals.  In addition to academic coaching, the following TAMUG resource may be helpful:
+  *Office of Counseling and Career Services - learning disabilities, test anxiety, personal issues, health, career placement, etc.
+  *Office of Academic Enhancement - general advising, academic coaching, success workshops, supplemental instruction, tutoring, etc.
+  *Writing Lab - assessment editing, research, literacy, citations, workshops, etc.
+  *Office of Residence Life - student activities, housing
+  *Office of Student Life - student organizations, culture and diversity, recreational sports, etc.
+
+The faculty, staff and I are deeply interested in your scholastic progress at Texas A&M at Galveston.  We hope that you will make every effort during the next semester to meet the terms of your probation.  Should you have any questions concerning your probationary status, please contact the head of your academic department.  Please know that I am also available if needed.
+
+Please look for coming contact from your academic coach regarding the next steps toward meeting your probationary terms in the Academic Coaching & Success Program.  For any questions regarding the terms and conditions of your probation, please contact The Office of Academic Enhancement.
+
+
+
+Sincerely,
+
+
+Dr. Donna C. Lang
+Associate Vice President
+Texas A&M University at Galveston
+
+
+
+The Office of Academic Enhancement (ACEN)
+  Krista McBrien, kmcbrien@tamug.edu, 409-741-4353
+  General, acen@tamug.edu, 409-741-4344
+
+General Academics (GACD, MAST)
+  Dr. JoAnn DiGeorgio-Lutz, digeorgj@tamug.edu, 409-740-4463
+  Dr. Victor Viser, viserv@tamug.edu, 409-740-4556
+  Paula Morris, morrisp@tamug.edu, 409-740-4975
+
+Marine Biology (MARB, MARF)
+  Dr. John Schwarz, schwarzj@tamug.edu, 409-740-4453
+  Rachel Ball, ballr@tamug.edu, 409-740-4531
+
+Maritime Systems Engineering (OCSE, OCSL)
+  Dr. Amanda Wood, wooda@tamug.edu, 409-740-4015
+
+Marine Engineering Technology (MARR)
+  Dr. Edward Clancy, clancye@tamug.edu, 409-740-4507
+  Steve Bentz, bentzs@tamug.edu, 409-741-7197
+  
+Marine Sciences (MARS, OCRE, USGA)
+  Dr. Kyeong Park, parkk@tamug.edu, 409-740-4710
+  Dr. Melanie Moser, leskom@tamug.edu, 409-740-4517
+  Grace Townsend, townseng@tamug.edu, 409-741-7104
+
+Marine Transportation (MART)
+  Capt. Augusta Roth, rotha@tamug.edu, 409-740-4471
+  Donna Ferrer, ferrerd@tamug.edu, 409-740-4887
+
+Maritime Administration (MARA)
+  Dr. Joan Mileski, mileskij@tamug.edu, 409-740-4978
+  Dr. Joe Knox, knoxj@tamug.edu, 409, 740.4442
+

@@ -30,7 +30,9 @@
 			<li><%= link_to 'SAIL Probation', sail_probation_merge_data_reports_path(format: 'csv') %></li>
 			<li><%= link_to 'SAIL Suspension', sail_suspension_merge_data_reports_path(format: 'csv') %></li>
 			<% else %>
-			<li><%= link_to 'Probation', probation_merge_data_reports_path(format: 'csv') %></li>
+      <li><%= link_to 'Probation', probation_merge_data_reports_path(format: 'csv') %></li>
+      <li><%= link_to 'Probation Level 1', probation_level_1_merge_data_reports_path(format: 'csv') %></li>
+      <li><%= link_to 'Probation Level 2', probation_level_2_merge_data_reports_path(format: 'csv') %></li>
 			<li><%= link_to 'Departmental Suspension', departmental_suspension_merge_data_reports_path(format: 'csv') %></li>
 			<li><%= link_to 'Suspension', suspension_merge_data_reports_path(format: 'csv') %></li>
 			<% end %>
@@ -41,14 +43,16 @@
 			<li><%= link_to 'SAIL Probation', sail_probation_letter_path %></li>
 			<li><%= link_to 'SAIL Suspension', sail_suspension_letter_path %></li>
 			<% else %>
-			<li><%= link_to 'Probation', probation_letter_path %></li>
+ <%#  <li><%= link_to 'Probation', probation_letter_path %><%#</li>%>
+			<li><%= link_to 'Probation Level 1', probation_level_1_letter_path %></li>
+      <li><%= link_to 'Probation Level 2', probation_level_2_letter_path %></li>
 			<li><%= link_to 'Departmental Suspension', departmental_suspension_letter_path %></li>
-			<li><%= link_to 'Suspension', suspension_letter_path %></li>
+
+<%#			<li><%= link_to 'Suspension', suspension_letter_path %><%#</li>%>
 			<% end %>
-			<li class="divider"></li>
-			<li class="nav-header">Letters (DOCX)</li>
-			<% if current_term.is_summer? %>
-			<% else %>
+<%#			<li class="divider"></li>%>
+<%#			<li class="nav-header">Letters (DOCX)</li>%>
+			<% if false %>
 			<li><%= link_to 'Probation', "http://ols.tamug.edu/grade_review/files/probation letter.docx" %></li>
 			<li><%= link_to 'Suspension', "http://ols.tamug.edu/grade_review/files/suspension letter.docx" %></li>
 			<li><%= link_to 'Labels', "http://ols.tamug.edu/grade_review/files/Labels.docx" %></li>

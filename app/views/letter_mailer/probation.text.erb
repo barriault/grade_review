@@ -1,6 +1,3 @@
-NOTE: Original letter mailed to your permanent address.
-
-
 <%= Date.today.strftime("%A, %B %d, %Y") %>
 
 
@@ -15,25 +12,20 @@ NOTE: Original letter mailed to your permanent address.
 Dear <%= @student.first_name %>, 
 
 
-Upon receipt of your final grade report, your academic record was reviewed at the departmental and institutional level. Since your grade point ratio is below the minimum level required to maintain satisfactory scholastic standing, you will be placed on scholastic probation for the <%= @student.term.probation_term %> semester and until your grade point ratio becomes satisfactory.
+Upon receipt of your final grade report, your academic record was reviewed at the departmental and institutional level. Since your grade point ratio is below the minimum level required to maintain satisfactory scholastic standing, you will be placed on Scholastic Probation for the <%= @student.term.probation_term %> semester and until your grade point ratio becomes satisfactory.
 
-As you are probably aware, scholastic probation constitutes conditional permission to continue in the University after having become scholastically deficient. Please look carefully at your grades on your Howdy portal. I recommend using the unofficial transcript to review your entire history. If your cumulative grade point ratio is above 2.0 but your term GPR is below 2.0, this is less serious, however; you should review your progress for patterns. If your cumulative GPR is below 2.0, this is a more serious condition. It is also more serious the further you are into your degree program (senior versus freshman). The primary function of this review is to help guide you to keep moving toward your degree and your goals. Following are the terms you must meet to continue your degree at TAMUG:
+Scholastic Probation constitutes conditional permission to continue in the University after having become scholastically deficient. You are responsible for learning TAMUG academic rules. Review academic rules and their important details at www.tamug.edu/stulife/studentrules.html. At the end of the <%= @student.term.probation_term %> semester, your semester and cumulative grade point ratio must be equal to or greater than 2.0.  If you do not meet the terms of your scholastic probation your continued enrollment will be in jeopardy.
 
-  * At the end of the <%= @student.term.probation_term %> semester, your cumulative grade point ratio must be equal to or greater than 2.0. (In some cases, you may be allowed to continue past <%= @student.term.probation_term %>, if you have made significant progress.)
-  * Regular attendance in all scheduled classes.
-  * Ensure that you have pre-requisite courses for all enrolled courses.
-  * Repeat any required courses prior to moving forward in that subject.
-  * Complete at least 12 hours toward your degree (unless approved as a part-time student or with extenuating circumstances).
+Please note that some departments/majors require a higher GPR to meet degree requirements, therefore we HIGHLY recommend examining your academic performance with an academic advisor. You may need to adjust your <%= @student.term.probation_term %> schedule to accommodate unfilled pre-requisites and required course repeats. An advisor can assess your progress and help you develop a plan for moving forward. Please find a list of department contact info below. 
 
-Resources that may be of support to you:
-  * Meet with your academic adviser in your major.
-  * Meet with the Office of Counseling (learning disabilities, test anxiety, personal issues, veteran services, substance abuse, wellness and more).
-  * Attend the Office of Academic Enhancement Academic Right Start Workshop to learn how to use the on-line resource “Academic Success”.
-  * Meet with Career Planning and Placement (choose or refocus on your major).
+We look forward to supporting you in fulfilling your academic goals. In addition to academic advising, the following TAMUG resources may be helpful:
+  *Office of Counseling and Career Services - learning disabilities, test anxiety, personal issues, health, career placement, etc.
+  *Office of Academic Enhancement - general advising, academic coaching, success workshops, supplemental instruction, tutoring, etc.
+  *Writing Lab - assignment editing, research, literacy, citations, workshops, etc.
+  *Applied Mathematics Laboratory - math homework assistance and group study sessions
+  *Office of Residence Life - student activities, housing
+  *Office of Student Life - student organizations, culture and diversity, recreational sports, etc.
 
-Please note that some departments/majors require a higher GPR to meet degree requirements. Please consult with your academic advisor concerning your degree requirements.
-
-If you do not meet the terms of your scholastic probation your continued enrollment will be in jeopardy. 
 The faculty and I are deeply interested in your scholastic progress at Texas A&M at Galveston. We hope that you will make every effort during the next semester to meet the terms of your probation. Should you have any questions concerning your probationary status, please contact the head of your academic department. Please know that I am also available if you need.
 
 
@@ -42,10 +34,40 @@ Sincerely,
 
 
 Dr. Donna C. Lang
-Vice President
+Associate Vice President
 Texas A&M University at Galveston
 
 
-cc: Admissions & Records/Probation
-<%= "    Student File - #{@student.uin}" %>
-<%= "    #{@student.major}" %>
+
+General Academics (GACD, MAST)
+  Dr. JoAnn DiGeorgio-Lutz, digeorgj@tamug.edu, 409-740-4463
+  Dr. Victor Viser, viserv@tamug.edu, 409-740-4556
+  Lupe Aaron, aaronl@tamug.edu, 409-740-4498
+  Dr. Elizabeth Nyman, enyman@tamug.edu, 409-740-4762
+
+Marine Biology (MARB, MARF)
+  Dr. John Schwarz, schwarzj@tamug.edu, 409-740-4453
+  Rachel Ball, ballr@tamug.edu, 409-740-4531
+
+Maritime Systems Engineering (OCSE, OCSL)
+  Dr. Bert Sweetman, sweetmaj@tamug.edu, 409-740-4486
+  Dr. Amanda Wood, wooda@tamug.edu, 409-740-4015
+
+Marine Engineering Technology (MARR)
+  Dr. Edward Clancy, clancye@tamug.edu, 409-740-4507
+  Dr. Matt Carroll, carrollm@tamug.edu, 409-740-4473
+  
+Marine Sciences (MARS, OCRE, USGA)
+  Dr. Kyeong Park, parkk@tamug.edu, 409-740-4710
+  Dr. Melanie Moser, leskom@tamug.edu, 409-740-4517
+  Grace Townsend, townseng@tamug.edu, 409-741-7104
+
+Marine Transportation (MART)
+  Capt. Augusta Roth, rotha@tamug.edu, 409-740-4471
+  Donna Ferrer, ferrerd@tamug.edu, 409-740-4887
+
+Maritime Administration (MARA)
+  Dr. Joan Mileski, mileskij@tamug.edu, 409-740-4978
+  Dr. Joe Knox, knoxj@tamug.edu, 409, 740.4442
+  Peggy Rutkowski, rutkowsp@tamug.edu, 409-740-4474
+

@@ -74,7 +74,9 @@ GradeReview::Application.configure do
     domain: "tamug.edu",
     authentication: "ntlm",
     user_name: ENV['SMTP_USER'],
-    password: ENV['SMTP_PASSWORD']
+    password: ENV['SMTP_PASSWORD'],
+    enable_starttls_auto: true,
+    openssl_verify_mode: 'none'
   }
 
 end

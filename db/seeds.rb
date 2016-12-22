@@ -38,11 +38,11 @@ user.add_role :mara
 user.add_role :mart
 user.save
 
-Student.create(initial_status: "Probation", uin: "422005388", major: "MARB", classification: "U1", first_name: "Jeff", last_name: "Barriault", email: "barriauj@tamug.edu", address_1: "720 Marlin Street", city: "Bayou Vista", state: "TX", postal_code: "77563", emailed: false, term: term)
+Student.create(initial_status: "Probation Level 1", uin: "422005388", major: "MARB", classification: "U1", first_name: "Jeff", last_name: "Barriault", email: "barriauj@tamug.edu", address_1: "720 Marlin Street", city: "Bayou Vista", state: "TX", postal_code: "77563", emailed: false, term: term)
                
-Student.create(initial_status: "Probation", uin: "422005388", major: "MARF", classification: "U1", first_name: "Susan B.", last_name: "Anthony", email: "barriauj@tamug.edu", address_1: "17 Madison Street", city: "Rochester", state: "NY", postal_code: "14608", emailed: false, term: term)
+Student.create(initial_status: "Probation Level 1", uin: "422005388", major: "MARF", classification: "U1", first_name: "Susan B.", last_name: "Anthony", email: "barriauj@tamug.edu", address_1: "17 Madison Street", city: "Rochester", state: "NY", postal_code: "14608", emailed: false, term: term)
                
-Student.create(initial_status: "Probation", uin: "422005388", major: "MARB", classification: "U1", first_name: "Thomas", last_name: "Jefferson", email: "barriauj@tamug.edu", address_1: "931 Thomas Jefferson Parkway", city: "Charlottesville", state: "VA", postal_code: "22902", emailed: false, term: term)
+Student.create(initial_status: "Probation Level 1", uin: "422005388", major: "MARB", classification: "U1", first_name: "Thomas", last_name: "Jefferson", email: "barriauj@tamug.edu", address_1: "931 Thomas Jefferson Parkway", city: "Charlottesville", state: "VA", postal_code: "22902", emailed: false, term: term)
                
 Student.create(initial_status: "Suspension", uin: "422005388", major: "MARS", classification: "U1", first_name: "Jeff", last_name: "Barriault", email: "barriauj@tamug.edu", address_1: "720 Marlin Street", city: "Bayou Vista", state: "TX", postal_code: "77563", emailed: false, term: term)
 

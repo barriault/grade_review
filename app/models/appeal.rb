@@ -32,7 +32,7 @@ class Appeal < ActiveRecord::Base
     if Term.current.is_summer?
       update_attribute(:final_status, "SAIL Probation")
     else
-      update_attribute(:final_status, "Probation")
+      update_attribute(:final_status, "Probation Level 1")
     end
   end
   

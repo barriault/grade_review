@@ -15,8 +15,10 @@ class AdminStudent < ActiveRecord::Base
 
   def send_email
     case final_status
-    when "Probation"
-      LetterMailer.probation(self).deliver
+    when "Probation Level 1"
+      LetterMailer.probation_level_1(self).deliver
+    when "Probation Level 2"
+      LetterMailer.probation_level_2(self).deliver
     # when "Suspension"
     #   LetterMailer.suspension(self).deliver
     when "Departmental Suspension"
