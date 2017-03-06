@@ -65,7 +65,7 @@ class Student < ActiveRecord::Base
   
   def self.merge_data(options = {})
     CSV.generate(options) do |csv|
-      csv << ["UIN", "Major", "Class", "Last Name", "First Name", "Address 1", "Address 2", "City", "State", "Postal Code"]
+      csv << ["UIN", "Program", "Class", "Last Name", "First Name", "Address 1", "Address 2", "City", "State", "Postal Code"]
 
       all.each do |student|
         csv << [student.uin, student.major, student.classification, student.last_name, student.first_name, student.address_1, 
@@ -76,7 +76,7 @@ class Student < ActiveRecord::Base
   
   def self.alpha_roster(options = {})
     CSV.generate(options) do |csv|
-      csv << ["UIN", "Last Name", "First Name", "Initial Status", "Final Status", "Appeal Status", "Major", "Class", "Cum OA GPA Hrs", 
+      csv << ["UIN", "Last Name", "First Name", "Initial Status", "Final Status", "Appeal Status", "Program", "Class", "Cum OA GPA Hrs", 
         "Cum Instn GPA", "Var Cum Qpts", "Var Term Qpts", "Term Instn GPA Hrs", "Term Instn GPA", "AS", "AT"]
       
       all.each do |student|
@@ -89,7 +89,7 @@ class Student < ActiveRecord::Base
   
   def self.standard_report(options = {})
     CSV.generate(options) do |csv|
-      csv << ["Final Status", "Recom'd Appeal Status", "Appeal Status", "UIN", "Major", "Class", "Last Name", "First Name"]
+      csv << ["Final Status", "Recom'd Appeal Status", "Appeal Status", "UIN", "Program", "Class", "Last Name", "First Name"]
       
       all.each do |student|
         csv << [student.final_status, student.recommended_appeal_status, student.appeal_status, student.uin, student.major, 

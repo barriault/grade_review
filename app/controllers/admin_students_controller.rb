@@ -34,6 +34,7 @@ class AdminStudentsController < ApplicationController
     conf.columns[:degree_candidate].label = "Deg Cand?"
     conf.columns[:classification].label = "Class"
     conf.columns[:uin].label = "UIN"
+    conf.columns[:major].label = "Program"
     conf.columns[:last_name].label = "Last Name"
     conf.columns[:first_name].label = "First Name"
     conf.columns[:cum_overall_gpa_hrs].label = "Cum OA GPA Hrs"
