@@ -54,16 +54,16 @@ class Ability
     
     if user.has_role? :gacd
       # can [:read, :show_search], Student
-      can :manage_student, Student, :major => ['GACD', 'MAST', 'BA-GACD', 'BA-MAST', 'BS-USGA-MPC', 'BS-USGA-TCD', 'BS-USGA-MLP']
-      can :recommend_appeal, AppealRecommendation, :major => ['GACD', 'MAST', 'BA-GACD', 'BA-MAST', 'BS-USGA-MPC', 'BS-USGA-TCD', 'BS-USGA-MLP']
-      can :manage_address, Address, :major => ['GACD', 'MAST', 'BA-GACD', 'BA-MAST', 'BS-USGA-MPC', 'BS-USGA-TCD', 'BS-USGA-MLP']
+      can :manage_student, Student, :major => ['GACD', 'MAST', 'BAC-GACD', 'BA-MAST', 'BS-USGA-MPC', 'BS-USGA-TCC', 'BS-USGA-MLP']
+      can :recommend_appeal, AppealRecommendation, :major => ['GACD', 'MAST', 'BAC-GACD', 'BA-MAST', 'BS-USGA-MPC', 'BS-USGA-TCC', 'BS-USGA-MLP']
+      can :manage_address, Address, :major => ['GACD', 'MAST', 'BAC-GACD', 'BA-MAST', 'BS-USGA-MPC', 'BS-USGA-TCC', 'BS-USGA-MLP']
     end
     
     if user.has_role? :ocse
       # can [:read, :show_search], Student
-      can :manage_student, Student, :major => ['OCSE', 'OCSL', 'BS-OSCE', 'BS-OCSL']
-      can :recommend_appeal, AppealRecommendation, :major => ['OCSE', 'OCSL', 'BS-OSCE', 'BS-OCSL']
-      can :manage_address, Address, :major => ['OCSE', 'OCSL', 'BS-OSCE', 'BS-OCSL']
+      can :manage_student, Student, :major => ['OCSE', 'OCSL', 'BS-OCSE', 'BS-OCSL']
+      can :recommend_appeal, AppealRecommendation, :major => ['OCSE', 'OCSL', 'BS-OCSE', 'BS-OCSL']
+      can :manage_address, Address, :major => ['OCSE', 'OCSL', 'BS-OCSE', 'BS-OCSL']
     end
     
     if user.has_role? :mara
