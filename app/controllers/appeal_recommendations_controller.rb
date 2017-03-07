@@ -15,6 +15,7 @@ class AppealRecommendationsController < ApplicationController
     conf.columns[:uin].label = "UIN"
     conf.columns[:final_status].label = "Final Status"
     conf.columns[:recommended_appeal_status].label = "Recom'd Appeal Status"
+    conf.columns[:major].label = "Program"
     conf.columns[:appeal_status].label = "Appeal Status"
     conf.columns[:last_name].label = "Last Name"
     conf.columns[:first_name].label = "First Name"
