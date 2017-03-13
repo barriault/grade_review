@@ -68,9 +68,9 @@ class Ability
     
     if user.has_role? :mara
       # can [:read, :show_search], Student
-      can :manage_student, Student, :major => ['MARA','BS-MARA']
-      can :recommend_appeal, AppealRecommendation, :major => ['MARA','BS-MARA']
-      can :manage_address, Address, :major => ['MARA','BS-MARA']
+      can :manage_student, Student, :major => ['MARA','BS-MARA', 'BS-MARA-GAD']
+      can :recommend_appeal, AppealRecommendation, :major => ['MARA','BS-MARA', 'BS-MARA-GAD']
+      can :manage_address, Address, :major => ['MARA','BS-MARA', 'BS-MARA-GAD']
     end
     
     if user.has_role? :mart
