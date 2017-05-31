@@ -15,6 +15,7 @@ GradeReview::Application.routes.draw do
       get :probation_level_2_merge_data
       get :suspension_merge_data
       get :departmental_suspension_merge_data
+      get :campus_suspension_merge_data
       
       get :sail_good_standing_merge_data
       get :sail_probation_merge_data
@@ -23,6 +24,7 @@ GradeReview::Application.routes.draw do
       get :removal_from_tamu_suspension
       get :tamu_suspensions
       get :departmental_suspensions
+      get :campus_suspensions
       get :appeals
       
       get :scholastic_deficiency_by_term
@@ -104,6 +106,7 @@ GradeReview::Application.routes.draw do
   match '/mail_view/probation_level_1' => 'mail_view#probation_level_1', :as => :probation_level_1_letter
   match '/mail_view/probation_level_2' => 'mail_view#probation_level_2', :as => :probation_level_2_letter
   match '/mail_view/departmental_suspension' => 'mail_view#departmental_suspension', :as => :departmental_suspension_letter
+  match '/mail_view/campus_suspension' => 'mail_view#campus_suspension', :as => :campus_suspension_letter
   match '/mail_view/suspension' => 'mail_view#suspension', :as => :suspension_letter
   match '/mail_view/sail_good_standing' => 'mail_view#sail_good_standing', :as => :sail_good_standing_letter
   match '/mail_view/sail_probation' => 'mail_view#sail_probation', :as => :sail_probation_letter

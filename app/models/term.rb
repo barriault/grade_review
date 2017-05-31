@@ -28,7 +28,7 @@ class Term < ActiveRecord::Base
   end
   
   def suspensions
-    students.where(Student.arel_table[:final_status].eq_any(["Suspension", "SAIL Suspension"])).count
+    students.where(Student.arel_table[:final_status].eq_any(["Suspension", "Campus Suspension", "SAIL Suspension"])).count
   end
   
   def departmental_suspensions
@@ -40,7 +40,7 @@ class Term < ActiveRecord::Base
   end
   
   def total_deficiency
-    students.where(Student.arel_table[:final_status].eq_any(["Probation", "Probation Level 1", "Probation Level 2", "SAIL Probation", "Suspension", "Departmental Suspension", "SAIL Suspension"])).count
+    students.where(Student.arel_table[:final_status].eq_any(["Probation", "Probation Level 1", "Probation Level 2", "SAIL Probation", "Suspension", "Departmental Suspension", "Campus Suspension", "SAIL Suspension"])).count
   end
   
   def percent_of_total

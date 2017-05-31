@@ -60,6 +60,16 @@ class ReportsController < ApplicationController
     end
   end
   
+  def campus_suspension_merge_data
+    @students = Student.accessible_by(current_ability)
+      .where(:final_status => "Campus Suspension")
+      .order("major, classification, last_name, first_name")
+      
+    respond_to do |format|
+      format.csv { send_data @students.merge_data }
+    end
+  end
+  
   def sail_good_standing_merge_data
     @students = Student.accessible_by(current_ability)
       .where(:final_status => "SAIL Good Standing")
@@ -92,7 +102,7 @@ class ReportsController < ApplicationController
   
   def removal_from_tamu_suspension
     @students = Student.accessible_by(current_ability)
-      .where("initial_status = 'Suspension' AND (final_status = 'Probation Level 1' OR final_status = 'Probation Level 1' OR final_status = 'Departmental Suspension') AND appeal_status IS NULL")
+      .where("initial_status = 'Suspension' AND (final_status = 'Probation Level 1' OR final_status = 'Probation Level 2' OR final_status = 'Departmental Suspension' OR final_status = 'Campus Suspension') AND appeal_status IS NULL")
       .order("major, classification, last_name, first_name")
       
     respond_to do |format|
@@ -115,6 +125,17 @@ class ReportsController < ApplicationController
   def departmental_suspensions
     @students = Student.accessible_by(current_ability)
       .where("final_status = 'Departmental Suspension'")
+      .order("major, classification, last_name, first_name")
+      
+    respond_to do |format|
+      format.csv { send_data @students.standard_report }
+      format.html
+    end
+  end
+  
+  def campus_suspensions
+    @students = Student.accessible_by(current_ability)
+      .where("final_status = 'Campus Suspension'")
       .order("major, classification, last_name, first_name")
       
     respond_to do |format|

@@ -20,6 +20,11 @@ class MailPreview < MailView
     mail = LetterMailer.departmental_suspension(student)
   end
   
+  def campus_suspension
+    student = get_student
+    mail = LetterMailer.campus_suspension(student)
+  end
+  
   def suspension
     student = get_student
     mail = LetterMailer.suspension(student)

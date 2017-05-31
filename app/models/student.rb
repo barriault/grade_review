@@ -25,6 +25,8 @@ class Student < ActiveRecord::Base
       # LetterMailer.suspension(self).deliver
     when "Departmental Suspension"
       LetterMailer.departmental_suspension(self).deliver
+    when "Campus Suspension"
+      LetterMailer.campus_suspension(self).deliver
     when "SAIL Good Standing"
       LetterMailer.sail_good_standing(self).deliver
     when "SAIL Probation"
@@ -38,7 +40,7 @@ class Student < ActiveRecord::Base
     if term.is_summer?
       ["SAIL Good Standing", "SAIL Probation", "SAIL Suspension"]
     else
-      initial_status.eql?("Probation Level 1") ? ["Probation Level 1", "Probation Level 2", "Departmental Suspension", "Remove"] : ["Probation Level 1", "Probation Level 2", "Suspension", "Departmental Suspension"]
+      initial_status.eql?("Probation Level 1") ? ["Probation Level 1", "Probation Level 2", "Departmental Suspension", "Campus Suspension", "Remove"] : ["Probation Level 1", "Probation Level 2", "Suspension", "Departmental Suspension", "Campus Suspension"]
     end
   end
   

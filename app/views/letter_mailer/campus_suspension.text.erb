@@ -1,0 +1,79 @@
+<%= Date.today.strftime("%A, %B %d, %Y") %>
+
+
+<%= "#{@student.first_name} #{@student.last_name} [#{@student.uin}]"%>
+<%= @student.address_1 %>
+<% unless @student.address_2.blank? -%>
+<%= @student.address_2 %>
+<% end -%>
+<%= "#{@student.city}, #{@student.state} #{@student.postal_code}"%>
+
+
+Dear <%= @student.first_name %>,
+
+
+Upon receipt of your final grade report, your academic record was reviewed at the departmental and institutional level.  Your grade point ratio is below the minimum level required to maintain satisfactory scholastic standing at the Galveston Campus placing you on Galveston Campus Suspension. In effect, you will be dropped from your <%= @student.term.probation_term %> classes and a hold has been placed on your registration.
+
+You are designated on suspension from the Texas A&M University at Gavleston Campus for (1) full semester <%= @student.term.probation_term %>.  During this time, you are required to develop an action plan addressing the specific issues causing you academic difficulty.  After the semester suspension concludes, you will be required to reapply to the campus.  Readmission to the university is not guaranteed.  
+
+You may apply for readmission to Teaxas A&M University at Galveston for an academic term that begins after the completion of your term suspension.  Additional information on the application process for readmission is available from the Office of Admissions website (www.tamug.edu/admrc).  All readmission applications will be reviewed, but readmission is not guaranteed.  Factors considered in readmission decisions include GPA at Texas A&M, GPA coursework completed since leaving Texas A&M, desired major, and information presented in the application.
+
+You are responsible for learning TAMUG academic rules.  Review academic rules and their important details at www.tamug.edu/stulife/studentrules.html.
+
+We look forward to supporting you in fulfilling your academic goals.  In addition to academic advising, the following TAMUG resources may be helpful:
+
+  *Office of Counseling and Career Services - learning disabilities, test anxiety, personal issues, health, career placement, etc.
+  *Office of Academic Enhancement - general advising, academic coaching, success workshops, supplemental instruction, tutoring, etc.
+  *Writing Lab - assignment editing, research, literacy, citations, workshops, etc.
+  *Applied Mathematics Laboratory - math homework assistance and group study sessions
+  *Office of Residence Life - student activities, housing
+  *Office of Student Life - student organizations, culture and diversity, recreational sports, etc.
+
+The faculty and I are deeply interested in your scholastic progress at Texas A&M at Galveston.  Should you have any questions concerning your probationary status, please contact the head of your academic department.  Please know that I am also available if you need.
+
+
+Sincerely,
+
+
+Dr. Donna C. Lang
+Associate Vice President
+Texas A&M University at Galveston
+
+
+
+The Office of Academic Enhancement - ACEN - (GACD)
+  General, acen@tamug.edu, 409-741-4343
+
+Liberal Studies (MAST, USGA-MPC, USGA-MLP)
+  Dr. JoAnn DiGeorgio-Lutz, digeorgj@tamug.edu, 409-740-4463
+  Dr. Victor Viser (MPC), viserv@tamug.edu, 409-740-4556
+  Dr. David Capper (MLP), david_capper@tamug.edu, 409-740-4524
+  Paula Morris, morrisp@tamug.edu, 409-740-4975
+
+Marine Biology (MARB, MARF)
+  Dr. John Schwarz, schwarzj@tamug.edu, 409-740-4453
+  Rachel Ball, ballr@tamug.edu, 409-740-4531
+
+Maritime Systems Engineering (OCSE, OCSL)
+  Dr. Amanda Wood, wooda@tamug.edu, 409-740-4015
+
+Marine Sciences (MARS, OCRE, USGA-OOH)
+  Dr. Kyeong Park, parkk@tamug.edu, 409-740-4710
+  Dr. Melanie Moser, moserm@tamug.edu, 409-740-4517
+  Dr. Grace Townsend, townseng@tamug.edu, 409-741-7104
+
+Marine Transportation (MART)
+  Capt. Augusta Roth, rotha@tamug.edu, 409-740-4471
+  Donna Ferrer, ferrerd@tamug.edu, 409-740-4887
+
+Maritime Administration (MARA)
+  Dr. Joan Mileski, mileskij@tamug.edu, 409-740-4978
+  Dr. Joe Knox, knoxj@tamug.edu, 409-740-4442
+
+Marine Engineering Technology (MARR)
+  Dr. Edward Clancy, clancye@tamug.edu, 409-740-4507
+  Dr. Matthew Carroll, carrollm@tamug.edu 409-740-4473
+
+cc: Admissions & Records/Suspension
+<%= "    Student File - #{@student.uin}" %>
+<%= "    #{@student.major}" %>
