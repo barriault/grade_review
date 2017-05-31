@@ -24,11 +24,6 @@ class LetterMailer < ActionMailer::Base
     mail to: student.email, subject: "Probation"
   end
   
-  def campus_suspension(student)
-    @student = student
-    mail to: student.email, subject: "Campus Suspension"
-  end
-  
   def suspension(student)
     @student = student
     mail to: student.email, subject: "Suspension"
@@ -37,6 +32,11 @@ class LetterMailer < ActionMailer::Base
   def departmental_suspension(student)
     @student = student
     mail to: student.email, subject: "Departmental Suspension"
+  end
+  
+  def campus_suspension(student)
+    @student = student
+    mail to: student.email, subject: "Campus Suspension"
   end
   
   def sail_good_standing(student)
