@@ -76,7 +76,7 @@ class Term < ActiveRecord::Base
   end
   
   def total_deficiency_by_major(major)
-    students.where(major: major).where(Student.arel_table[:final_status].eq_any(["Probation", "Probation Level 1", "Probation Level 2", "SAIL Probation", "Gateway Probation", "Suspension", "Departmental Suspension", "SAIL Suspension"])).count
+    students.where(major: major).where(Student.arel_table[:final_status].eq_any(["Probation", "Probation Level 1", "Probation Level 2", "SAIL Probation", "Gateway Probation", "Suspension", "Departmental Suspension", "SAIL Suspension", "Gateway Suspension"])).count
   end
   
   def appeals_by_major(major)
