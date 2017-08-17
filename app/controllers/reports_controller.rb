@@ -100,6 +100,36 @@ class ReportsController < ApplicationController
     end
   end
   
+  def gateway_good_standing_merge_data
+    @students = Student.accessible_by(current_ability)
+      .where(:final_status => "Gateway Good Standing")
+      .order("major, classification, last_name, first_name")
+      
+    respond_to do |format|
+      format.csv { send_data @students.merge_data }
+    end
+  end
+  
+  def gateway_probation_merge_data
+    @students = Student.accessible_by(current_ability)
+      .where(:final_status => "Gateway Probation")
+      .order("major, classification, last_name, first_name")
+      
+    respond_to do |format|
+      format.csv { send_data @students.merge_data }
+    end
+  end
+  
+  def gateway_suspension_merge_data
+    @students = Student.accessible_by(current_ability)
+      .where(:final_status => "Gateway Suspension")
+      .order("major, classification, last_name, first_name")
+      
+    respond_to do |format|
+      format.csv { send_data @students.merge_data }
+    end
+  end
+  
   def removal_from_tamu_suspension
     @students = Student.accessible_by(current_ability)
       .where("initial_status = 'Suspension' AND (final_status = 'Probation Level 1' OR final_status = 'Probation Level 2' OR final_status = 'Departmental Suspension' OR final_status = 'Campus Suspension') AND appeal_status IS NULL")

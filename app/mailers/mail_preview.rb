@@ -45,6 +45,21 @@ class MailPreview < MailView
     mail = LetterMailer.sail_suspension(student)
   end
   
+  def gateway_good_standing
+    student = get_student
+    mail = LetterMailer.gateway_good_standing(student)
+  end
+  
+  def gateway_probation
+    student = get_student
+    mail = LetterMailer.gateway_probation(student)
+  end
+  
+  def gateway_suspension
+    student = get_student
+    mail = LetterMailer.gateway_suspension(student)
+  end
+  
 private
   
   def get_student

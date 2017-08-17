@@ -25,12 +25,18 @@ class AdminStudent < ActiveRecord::Base
       LetterMailer.departmental_suspension(self).deliver
     when "Campus Suspension"
       LetterMailer.campus_suspension(self).deliver
-    when "SAIL Good Standing"
-      LetterMailer.sail_good_standing(self).deliver
-    when "SAIL Probation"
-      LetterMailer.sail_probation(self).deliver
-    when "SAIL Suspension"
-      LetterMailer.sail_suspension(self).deliver
+    # when "SAIL Good Standing"
+    #  LetterMailer.sail_good_standing(self).deliver
+    # when "SAIL Probation"
+    #  LetterMailer.sail_probation(self).deliver
+    # when "SAIL Suspension"
+    #  LetterMailer.sail_suspension(self).deliver 
+    when "Gateway Good Standing"
+      LetterMailer.gateway_good_standing(self).deliver
+    when "Gateway Probation"
+      LetterMailer.gateway_probation(self).deliver
+    when "Gateway Suspension"
+      LetterMailer.gateway_suspension(self).deliver
     end
   end
   

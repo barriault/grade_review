@@ -30,6 +30,9 @@
 			<li><%= link_to 'SAIL Good Standing', sail_good_standing_merge_data_reports_path(format: 'csv') %></li>
 			<li><%= link_to 'SAIL Probation', sail_probation_merge_data_reports_path(format: 'csv') %></li>
 			<li><%= link_to 'SAIL Suspension', sail_suspension_merge_data_reports_path(format: 'csv') %></li>
+			<li><%= link_to 'Gateway Good Standing', gateway_good_standing_merge_data_reports_path(format: 'csv') %></li>
+			<li><%= link_to 'Gateway Probation', gateway_probation_merge_data_reports_path(format: 'csv') %></li>
+			<li><%= link_to 'Gateway Suspension', gateway_suspension_merge_data_reports_path(format: 'csv') %></li>
 			<% else %>
       <li><%= link_to 'Probation', probation_merge_data_reports_path(format: 'csv') %></li>
       <li><%= link_to 'Probation Level 1', probation_level_1_merge_data_reports_path(format: 'csv') %></li>
@@ -41,9 +44,12 @@
 			<li class="divider"></li>
 			<li class="nav-header">Letter Preview (TXT)</li>
 			<% if current_term.is_summer? %>
-			<li><%= link_to 'SAIL Good Standing', sail_good_standing_letter_path %></li>
-			<li><%= link_to 'SAIL Probation', sail_probation_letter_path %></li>
-			<li><%= link_to 'SAIL Suspension', sail_suspension_letter_path %></li>
+	<%#		<li><%= link_to 'SAIL Good Standing', sail_good_standing_letter_path %><%#</li>%>
+	<%#		<li><%= link_to 'SAIL Probation', sail_probation_letter_path %><%#</li>%>
+	<%#		<li><%= link_to 'SAIL Suspension', sail_suspension_letter_path %><%#</li>%>
+			<li><%= link_to 'Gateway Good Standing', gateway_good_standing_letter_path %></li>
+			<li><%= link_to 'Gateway Probation', gateway_probation_letter_path %></li>
+			<li><%= link_to 'Gateway Suspension', gateway_suspension_letter_path %></li>
 			<% else %>
  <%#  <li><%= link_to 'Probation', probation_letter_path %><%#</li>%>
 			<li><%= link_to 'Probation Level 1', probation_level_1_letter_path %></li>

@@ -20,6 +20,9 @@ GradeReview::Application.routes.draw do
       get :sail_good_standing_merge_data
       get :sail_probation_merge_data
       get :sail_suspension_merge_data
+      get :gateway_good_standing_merge_data
+      get :gateway_probation_merge_data
+      get :gateway_suspension_merge_data
       
       get :removal_from_tamu_suspension
       get :tamu_suspensions
@@ -111,5 +114,8 @@ GradeReview::Application.routes.draw do
   match '/mail_view/sail_good_standing' => 'mail_view#sail_good_standing', :as => :sail_good_standing_letter
   match '/mail_view/sail_probation' => 'mail_view#sail_probation', :as => :sail_probation_letter
   match '/mail_view/sail_suspension' => 'mail_view#sail_suspension', :as => :sail_suspension_letter
+  match '/mail_view/gateway_good_standing' => 'mail_view#gateway_good_standing', :as => :gateway_good_standing_letter
+  match '/mail_view/gateway_probation' => 'mail_view#gateway_probation', :as => :gateway_probation_letter
+  match '/mail_view/gateway_suspension' => 'mail_view#gateway_suspension', :as => :gateway_suspension_letter
   
 end

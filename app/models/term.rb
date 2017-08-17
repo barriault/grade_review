@@ -28,7 +28,7 @@ class Term < ActiveRecord::Base
   end
   
   def suspensions
-    students.where(Student.arel_table[:final_status].eq_any(["Suspension", "Campus Suspension", "SAIL Suspension"])).count
+    students.where(Student.arel_table[:final_status].eq_any(["Suspension", "Campus Suspension", "SAIL Suspension", "Gateway Suspension"])).count
   end
   
   def departmental_suspensions
@@ -36,11 +36,11 @@ class Term < ActiveRecord::Base
   end
   
   def probations
-    students.where(Student.arel_table[:final_status].eq_any(["Probation", "Probation Level 1", "Probation Level 2", "SAIL Probation"])).count
+    students.where(Student.arel_table[:final_status].eq_any(["Probation", "Probation Level 1", "Probation Level 2", "SAIL Probation", "Gateway Probation"])).count
   end
   
   def total_deficiency
-    students.where(Student.arel_table[:final_status].eq_any(["Probation", "Probation Level 1", "Probation Level 2", "SAIL Probation", "Suspension", "Departmental Suspension", "Campus Suspension", "SAIL Suspension"])).count
+    students.where(Student.arel_table[:final_status].eq_any(["Probation", "Probation Level 1", "Probation Level 2", "SAIL Probation", "Gateway Probation", "Suspension", "Departmental Suspension", "Campus Suspension", "SAIL Suspension", "Gateway Suspension"])).count
   end
   
   def percent_of_total
@@ -64,7 +64,7 @@ class Term < ActiveRecord::Base
   end
   
   def suspensions_by_major(major)
-    students.where(major: major).where(Student.arel_table[:final_status].eq_any(["Suspension", "SAIL Suspension"])).count
+    students.where(major: major).where(Student.arel_table[:final_status].eq_any(["Suspension", "SAIL Suspension", "Gateway Suspension"])).count
   end
   
   def departmental_suspensions_by_major(major)
@@ -72,11 +72,11 @@ class Term < ActiveRecord::Base
   end
   
   def probations_by_major(major)
-    students.where(major: major).where(Student.arel_table[:final_status].eq_any(["Probation", "Probation Level 1", "Probation Level 2", "SAIL Probation"])).count
+    students.where(major: major).where(Student.arel_table[:final_status].eq_any(["Probation", "Probation Level 1", "Probation Level 2", "SAIL Probation", "Gateway Probation"])).count
   end
   
   def total_deficiency_by_major(major)
-    students.where(major: major).where(Student.arel_table[:final_status].eq_any(["Probation", "Probation Level 1", "Probation Level 2", "SAIL Probation", "Suspension", "Departmental Suspension", "SAIL Suspension"])).count
+    students.where(major: major).where(Student.arel_table[:final_status].eq_any(["Probation", "Probation Level 1", "Probation Level 2", "SAIL Probation", "Gateway Probation", "Suspension", "Departmental Suspension", "SAIL Suspension"])).count
   end
   
   def appeals_by_major(major)

@@ -1,0 +1,34 @@
+NOTE: Original letter mailed to your permanent address.
+
+
+<%= Date.today.strftime("%A, %B %d, %Y") %>
+
+
+<%= "#{@student.first_name} #{@student.last_name}"%>
+<%= @student.address_1 %>
+<% unless @student.address_2.blank? -%>
+<%= @student.address_2 %>
+<% end -%>
+<%= "#{@student.city}, #{@student.state} #{@student.postal_code}"%>
+
+
+Dear <%= @student.first_name %>, 
+
+
+Congratulations on a job well done!  As a Summer S.A.I.L. student, you have met all conditions of your admission program and are in academic good standing at Texas A&M University at Galveston.  You are no longer considered provisional, and all conditions are removed for the fall term.
+
+I am delighted that you have chosen to pursue your studies at Texas A&M University at Galveston and sincerely hope that you will enjoy your time here.  Your summer record indicates your commitment to your education.  I hope that you will continue to prosper.  Please know that we are committed to your success as well.  If you should need assistance, please do not hesitate to avail yourself of our services.
+
+Best wishes as you pursue your degree.
+
+Sincerely,
+
+
+Dr. Donna C. Lang
+Vice President
+Texas A&M University at Galveston
+
+
+cc: Admissions & Records/S.A.I.L. Good Standing
+<%= "    Student File - #{@student.uin}" %>
+<%= "    #{@student.major}" %>

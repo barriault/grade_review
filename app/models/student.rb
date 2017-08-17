@@ -27,18 +27,25 @@ class Student < ActiveRecord::Base
       LetterMailer.departmental_suspension(self).deliver
     when "Campus Suspension"
       LetterMailer.campus_suspension(self).deliver
-    when "SAIL Good Standing"
-      LetterMailer.sail_good_standing(self).deliver
-    when "SAIL Probation"
-      LetterMailer.sail_probation(self).deliver
-    when "SAIL Suspension"
-      LetterMailer.sail_suspension(self).deliver
+      #when "SAIL Good Standing"
+      #LetterMailer.sail_good_standing(self).deliver
+      #when "SAIL Probation"
+      #LetterMailer.sail_probation(self).deliver
+      #when "SAIL Suspension"
+      #LetterMailer.sail_suspension(self).deliver
+    when "Gateway Good Standing"
+      LetterMailer.gateway_good_standing(self).deliver
+    when "Gateway Probation"
+      LetterMailer.gateway_probation(self).deliver
+    when "Gateway Suspension"
+      LetterMailer.gateway_suspension(self).deliver
     end
   end
   
   def final_status_select_options
     if term.is_summer?
-      ["SAIL Good Standing", "SAIL Probation", "SAIL Suspension"]
+      ["Gateway Good Standing", "Gateway Probation", "Gateway Suspension"]
+      #["SAIL Good Standing", "SAIL Probation", "SAIL Suspension"]
     else
       initial_status.eql?("Probation Level 1") ? ["Probation Level 1", "Probation Level 2", "Departmental Suspension", "Campus Suspension", "Remove"] : ["Probation Level 1", "Probation Level 2", "Suspension", "Departmental Suspension", "Campus Suspension"]
     end

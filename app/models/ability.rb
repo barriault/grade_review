@@ -13,7 +13,7 @@ class Ability
       can :manage, :all
     end
     
-    if user.has_role?(:sail) && Term.current.is_summer?
+    if user.has_role?(:gateway) && Term.current.is_summer?
       can :manage_student, Student
       can :recommend_appeal, AppealRecommendation
       can :manage_address, Address

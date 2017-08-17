@@ -16,7 +16,8 @@ class Appeal < ActiveRecord::Base
     if appeal_status
       update_attribute(:appeal_status, nil)
       if Term.current.is_summer?
-        update_attribute(:final_status, "SAIL Suspension")
+        #update_attribute(:final_status, "SAIL Suspension")
+        update_attribute(:final_status, "Gateway Suspension")
       else
         if initial_status.eql?("Suspension")
           update_attribute(:final_status, "Suspension")
@@ -30,7 +31,8 @@ class Appeal < ActiveRecord::Base
   def grant_appeal
     update_attribute(:appeal_status, "Granted")
     if Term.current.is_summer?
-      update_attribute(:final_status, "SAIL Probation")
+      #update_attribute(:final_status, "SAIL Probation")
+      update_attribute(:final_status, "Gateway Probation")
     else
       update_attribute(:final_status, "Probation Level 1")
     end
@@ -39,7 +41,8 @@ class Appeal < ActiveRecord::Base
   def deny_appeal
     update_attribute(:appeal_status, "Denied")
     if Term.current.is_summer?
-      update_attribute(:final_status, "SAIL Suspension")
+      #update_attribute(:final_status, "SAIL Suspension")
+      update_attribute(:final_status, "Gateway Suspension")
     else
       if initial_status.eql?("Suspension")
         update_attribute(:final_status, "Suspension")
